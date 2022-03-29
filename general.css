@@ -132,7 +132,7 @@ html {
 .heading-primary {
   font-size: 7.4rem;
   font-weight: 700;
-  letter-spacing: -0.75;
+  letter-spacing: -0.5px;
 }
 /* ************************* */
 /* Footer section  */

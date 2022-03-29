@@ -1,4 +1,5 @@
 "use strict";
+// Login variables
 const localUsername = "akshay";
 const localPassword = "123";
 const uNameEl = document.getElementById("username");
@@ -6,6 +7,8 @@ const pWordEl = document.getElementById("password");
 const formEl = document.getElementById("login-form");
 const submitBtnEl = document.getElementById("submit");
 
+// List variables
+addBtnEl = document.getElementById("add-task");
 // User validation function
 submitBtnEl.addEventListener("click", function () {
   const username = uNameEl.value;

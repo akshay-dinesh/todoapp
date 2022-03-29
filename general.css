@@ -1,0 +1,145 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font size (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights
+
+- Line heights
+
+- Letter spacing
+
+--- 02 COLORS
+
+- Primary :#d0ebff;
+- Tints :#f6fbff;
+#2a2f33; (Font color)
+
+- Shades :
+- Accents :
+- Greys :
+
+
+--- 05 SHADOWS
+rgba(0, 0, 0, 0.2);
+
+--- 06 BORDER-RADIUS
+9px
+11px
+
+
+--- 07 WHITESPACE
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #2a2f33;
+}
+
+html {
+  /*
+  DEFAULT font size : 16px
+  Custom defined default font size : 10px
+  10px / 16px = 0.625 (62.5%)
+
+  1rem = 10px
+  */
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.container--login {
+  max-width: 50rem;
+}
+
+.btn {
+  padding: 1.2rem 2.4rem;
+  display: inline-block;
+  width: 100%;
+  border-radius: 9px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #a5d8ff;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #339af0;
+}
+
+/* ************************* */
+/* Grid  */
+/* ************************* */
+.grid {
+  display: grid;
+}
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--2-rows {
+  grid-template-rows: repeat(2, 1fr);
+}
+.grid--3-rows {
+  grid-template-rows: repeat(2, 1fr);
+}
+.grid--4-rows {
+  grid-template-rows: repeat(2, 1fr);
+}
+.grid--5-rows {
+  grid-template-rows: repeat(2, 1fr);
+}
+/* ************************* */
+/* Header section  */
+/* ************************* */
+
+.section-header {
+  background-color: #f6fbff;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 36px 8px rgba(0, 0, 0, 0.2);
+  padding: 4.8rem;
+  text-transform: uppercase;
+}
+
+.heading-primary {
+  font-size: 7.4rem;
+  font-weight: 700;
+  letter-spacing: -0.75;
+}
+/* ************************* */
+/* Footer section  */
+/* ************************* */
+.section-footer {
+  height: 10vh;
+  background-color: #f6fbff;
+  box-shadow: 0 0 36px 8px rgba(0, 0, 0, 0.2);
+  padding: 4.8rem;
+}

@@ -1,4 +1,5 @@
 "use strict";
+
 // User validation variables
 const localUsername = "akshay";
 const localPassword = "123";
@@ -36,7 +37,7 @@ const taskArray = [];
 let li = document.createElement("li");
 const tasks = document.getElementById("tasks");
 
-// List function (read data from html)
+// List function (read and write data from html)
 addBtnEl.addEventListener("click", function () {
   taskArray.push(taskInput.value);
   tasks.innerHTML = addLiFunction(taskArray);

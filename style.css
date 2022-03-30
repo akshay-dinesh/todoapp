@@ -56,6 +56,11 @@
   padding: 6.4rem 9.6rem 9.6rem 9.6rem;
 }
 
+.dashboard--grid {
+  display: grid;
+  grid-template-rows: 20rem 1fr;
+}
+
 .todo-input {
   background-color: #f6fbff;
   grid-gap: 2.4rem;
@@ -83,4 +88,15 @@
   background-color: #f6fbff;
   padding: 2.4rem;
   border-radius: 11px;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.tasks li {
+  list-style: none;
+  font-size: 2.4rem;
 }

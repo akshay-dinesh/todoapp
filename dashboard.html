@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="general.css" />
 
-  <script defer src="script.js"></script>
+
 </head>
 
 <body>
@@ -26,15 +26,21 @@
 
   <main>
     <div class="section-dashboard">
-      <div class="container grid grid--2-rows">
+      <div class="container dashboard--grid">
         <div class="todo-input grid">
-          <p class="input-header">Enter the task to be added</p>
+          <p id="input-header" class="input-header">Enter the task to be added</p>
           <input class="input-text" type="task" id="task-input-text" placeholder="Enter task here" />
-          <button id="add-task" class="btn btn--todo">Add task</button>
+          <a id="add-task" class="btn btn--todo">Add task</a>
         </div>
         <div class="todo-display">
           <div class="task-list">
-            <ul id="tasks" class="tasks"></ul>
+            <ul id="tasks" class="tasks">
+              <li>option 1</li>
+              <li>option 2</li>
+              <li>option 3</li>
+              <li>option 4</li>
+              <li>option 5</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -44,6 +50,7 @@
   <footer class="section-footer">
 
   </footer>
+  <script defer src="script.js"></script>
 </body>
 
 </html>

@@ -29,11 +29,13 @@
       <div class="container grid grid--2-rows">
         <div class="todo-input grid">
           <p class="input-header">Enter the task to be added</p>
-          <input class="input-text" type="task" id="task" placeholder="Enter task here" />
+          <input class="input-text" type="task" id="task-input-text" placeholder="Enter task here" />
           <button id="add-task" class="btn btn--todo">Add task</button>
         </div>
         <div class="todo-display">
-          <div class="task-list"></div>
+          <div class="task-list">
+            <ul id="tasks" class="tasks"></ul>
+          </div>
         </div>
       </div>
     </div>

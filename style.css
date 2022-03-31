@@ -98,9 +98,14 @@
   padding: 6.4rem 9.6rem 9.6rem 9.6rem;
 }
 
-.dashboard--grid {
-  display: grid;
+.grid--dashboard {
+  grid-template-columns: 2fr 8fr;
+  grid-gap: 1.6rem;
+}
+
+.grid--input-box {
   grid-template-rows: 20rem 1fr;
+  grid-gap: 1.6rem;
 }
 
 .todo-input {
@@ -109,12 +114,17 @@
   grid-template-columns: 4fr 1fr;
   padding: 2.4rem;
   border-radius: 11px;
-  margin-bottom: 2.4rem;
 }
 
 .input-header {
   font-size: 2.4rem;
   font-weight: 500;
+}
+
+.date {
+  font-size: 1.8rem;
+  font-weight: 500;
+  align-self: center;
 }
 
 .input-text {
@@ -141,4 +151,52 @@
 .tasks li {
   list-style: none;
   font-size: 2.4rem;
+}
+
+/* NAVIGATION  */
+.side-menu {
+  background-color: #f6fbff;
+  border-radius: 9px;
+}
+
+.user-name {
+  padding: 2.4rem;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2.4rem;
+}
+
+.nav-menu--list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2.4rem;
+  justify-content: space-between;
+}
+
+.nav-menu--list li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  font-size: 2.4rem;
+  padding: 1.6rem 1.6rem 1.6rem 1.2rem;
+  border-radius: 9px;
+  background-color: #a5d8ff;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-menu--list li:hover {
+  background-color: #339af0;
+}
+
+.nav-menu--list li:last-child {
+  margin-bottom: 1.2rem;
+}
+
+.nav-icon {
+  width: 2.4rem;
+  height: 2.4rem;
 }

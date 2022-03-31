@@ -9,19 +9,23 @@ const pWordEl = document.getElementById("password");
 const submitBtnEl = document.getElementById("submit");
 
 formEl.addEventListener("submit", (event) => {
-  // event.preventDefault();
   validateUser();
+  if (isFormValid() == true) {
+    formEl.submit();
+  } else {
+    event.preventDefault();
+  }
 });
 
 const validateUser = function () {
   // Username validation
-  if (!(uNameEl.value.trim() == "akshay")) {
+  if (!(uNameEl.value.trim() == localUsername)) {
     displayError(uNameEl, "Wrong username");
   } else {
     displaySuccess(uNameEl);
   }
   // Password validation
-  if (!(pWordEl.value.trim() == "123")) {
+  if (!(pWordEl.value.trim() == localPassword)) {
     displayError(pWordEl, "Wrong password");
   } else {
     displaySuccess(pWordEl);
@@ -56,3 +60,16 @@ const displaySuccess = function (element) {
   iconError.classList.remove("active");
   iconSuccess.classList.add("active");
 };
+
+// Form submit function
+function isFormValid() {
+  let result = true;
+  const allDivsEl = document.querySelectorAll(".login-form-input");
+
+  allDivsEl.forEach((container) => {
+    if (container.classList.contains("failure")) {
+      result = false;
+    }
+  });
+  return result;
+}

@@ -23,3 +23,11 @@ function addLiFunction(item) {
   }
   return items;
 }
+
+// Date in HTML
+const currentDate = new Date();
+const date = currentDate.getDate();
+const month = currentDate.getMonth() + 1;
+const year = currentDate.getFullYear();
+const dateString = `Today's date: ${date}/${month}/${year}`;
+document.getElementById("date").innerHTML = dateString;

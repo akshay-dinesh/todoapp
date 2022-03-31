@@ -5,6 +5,9 @@
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
 - Font weights
+500
+600
+700
 
 - Line heights
 
@@ -77,6 +80,7 @@ html {
   cursor: pointer;
   transition: all 0.3s;
   text-align: center;
+  border: none;
 }
 
 .btn:hover,

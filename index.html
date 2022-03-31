@@ -31,16 +31,22 @@
           <div class="login-header">
             Sign In
           </div>
-          <form class="login-form" action="/" method="GET">
-            <div>
+          <form id="login-form" class="login-form" action="dashboard.html" method="GET">
+            <div class="login-form-input">
               <label for="username">Username</label>
               <input name="username" id="username" type="text" placeholder="Enter your username" required />
+              <ion-icon class="icon icon--error" name="alert-circle-outline"></ion-icon>
+              <ion-icon class="icon icon--success" name="checkmark-circle-outline"></ion-icon>
+              <p class="error-message">Error message</p>
             </div>
-            <div>
+            <div class="login-form-input">
               <label for="password">Password</label>
               <input name="password" id="password" type="password" placeholder="Enter your password" required />
+              <ion-icon class="icon icon--error" name="alert-circle-outline"></ion-icon>
+              <ion-icon class="icon icon--success" name="checkmark-circle-outline"></ion-icon>
+              <p class="error-message">Error message</p>
             </div>
-            <a type="submit" id="submit" class="btn">Submit</a>
+            <button type="submit" id="submit" class="btn">Submit</button>
           </form>
         </div>
       </div>
@@ -49,7 +55,8 @@
   <footer class="section-footer">
 
   </footer>
-
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

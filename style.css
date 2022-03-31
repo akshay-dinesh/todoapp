@@ -96,11 +96,13 @@
   background-color: #d0ebff;
   height: 80vh;
   padding: 6.4rem 9.6rem 9.6rem 9.6rem;
+  overflow-y: scroll;
 }
 
 .grid--dashboard {
   grid-template-columns: 2fr 8fr;
   grid-gap: 1.6rem;
+  min-height: 600px;
 }
 
 .grid--input-box {
@@ -150,7 +152,10 @@
 
 .tasks li {
   list-style: none;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
+  padding: 1.2rem;
+  background-color: #850000;
+  border-radius: 11px;
 }
 
 /* NAVIGATION  */
@@ -161,8 +166,14 @@
 
 .user-name {
   padding: 2.4rem;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin-bottom: 2.4rem;
+}
+
+.user-name strong {
+  font-size: 2.4rem;
+  font-weight: 600;
   margin-bottom: 2.4rem;
 }
 

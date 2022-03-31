@@ -31,3 +31,25 @@ const month = currentDate.getMonth() + 1;
 const year = currentDate.getFullYear();
 const dateString = `Today's date: ${date}/${month}/${year}`;
 document.getElementById("date").innerHTML = dateString;
+
+// Dynamic username
+const userEl = document.querySelector("#user");
+const params = new URLSearchParams(window.location.search);
+
+params.forEach((value, key) => {
+  console.log(`${key} ${value}`);
+});
+
+console.log(params.hasOwnProperty("username"));
+console.log(JSON.stringify(params));
+
+// let userNameInput = params["username"];
+
+// for (let i = 0; i < obj.params.length; i++) {
+//   console.log(`${value}`);
+// }
+
+// params.forEach((value, key) => {
+//   userEl.append(`${key} = ${value}`);
+//   userEl.append(document.createElement("br"));
+// });

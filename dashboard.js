@@ -19,7 +19,7 @@ addBtnEl.addEventListener("click", function (event) {
 function addLiFunction(item) {
   let items = "";
   for (let i = 0; i < item.length; i++) {
-    items += `<li>${item[i]}</li>`;
+    items += `<li class="task"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon>${item[i]}</li>`;
   }
   return items;
 }
@@ -32,16 +32,16 @@ const year = currentDate.getFullYear();
 const dateString = `Today's date: ${date}/${month}/${year}`;
 document.getElementById("date").innerHTML = dateString;
 
-// Dynamic username
-const userEl = document.querySelector("#user");
-const params = new URLSearchParams(window.location.search);
+// Dynamic username // Check if key exists
+// const userEl = document.querySelector("#user");
+// const params = new URLSearchParams(window.location.search);
 
-params.forEach((value, key) => {
-  console.log(`${key} ${value}`);
-});
+// params.forEach((value, key) => {
+//   console.log(`${key} ${value}`);
+// });
 
-console.log(params.hasOwnProperty("username"));
-console.log(JSON.stringify(params));
+// console.log(params.hasOwnProperty("username"));
+// console.log(JSON.stringify(params));
 
 // let userNameInput = params["username"];
 
@@ -53,3 +53,11 @@ console.log(JSON.stringify(params));
 //   userEl.append(`${key} = ${value}`);
 //   userEl.append(document.createElement("br"));
 // });
+
+// Strike out task
+const taskEl = document.querySelector(".task");
+if (taskEl != null) {
+  taskEl.addEventListener("click", function () {
+    taskEl.classList.add("strike-through");
+  });
+}

@@ -28,7 +28,10 @@
     <div class="section-dashboard">
       <div class="grid grid--dashboard">
         <aside class="side-menu">
-          <p class="user-name">Welcome, <strong id="user"></strong></p>
+          <div class="user">
+            <p class="user-name">Welcome, <strong id="user">Akshay</strong></p>
+            <img src="./images/akshay.jpg" class="user-img" alt="Picture of Akshay">
+          </div>
           <nav class="nav-menu">
             <ul class="nav-menu--list">
               <li>
@@ -36,12 +39,12 @@
                 <p>Theme</p>
               </li>
               <li>
-                <ion-icon class="nav-icon" name="contrast-outline"></ion-icon>
-                <p>Theme</p>
+                <ion-icon name="refresh-outline"></ion-icon>
+                <p>Reset</p>
               </li>
               <li>
                 <ion-icon class="nav-icon" name="contrast-outline"></ion-icon>
-                <p>Theme</p>
+                <p>Switch Theme</p>
               </li>
               <li>
                 <ion-icon class="nav-icon" name="log-out-outline"></ion-icon>
@@ -50,23 +53,15 @@
             </ul>
           </nav>
         </aside>
-        <div class="grid grid--input-box">
-          <div class="todo-input grid">
-            <p id="input-header" class="input-header">Enter the task to be added</p>
-            <p id="date" class="date">&nbsp;</p>
-            <input class="input-text" type="task" id="task-input-text" placeholder="Enter task here" />
-            <button id="add-task" class="btn btn--todo">Add task</button>
-          </div>
-          <div class="todo-display">
-            <div class="task-list">
-              <ul id="tasks" class="tasks">
-                <!-- <li>option 1</li>
-                <li>option 2</li>
-                <li>option 3</li>
-                <li>option 4</li>
-                <li>option 5</li> -->
-              </ul>
-            </div>
+        <div class="todo-input grid">
+          <p id="input-header" class="input-header">Enter the task to be added</p>
+          <p id="date" class="date">&nbsp;</p>
+          <input class="input-text" type="task" id="task-input-text" placeholder="Enter task here" />
+          <button id="add-task" class="btn btn--todo">Add task</button>
+        </div>
+        <div class="todo-display">
+          <div class="task-list">
+            <ul id="tasks" class="tasks"></ul>
           </div>
         </div>
       </div>

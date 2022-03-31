@@ -1,8 +1,7 @@
 "use strict";
 
 // User validation variables
-const localUsername = "akshay";
-const localPassword = "123";
+
 const formEl = document.getElementById("login-form");
 const uNameEl = document.getElementById("username");
 const pWordEl = document.getElementById("password");
@@ -16,6 +15,24 @@ formEl.addEventListener("submit", (event) => {
     event.preventDefault();
   }
 });
+
+// Session storage
+const a = [];
+const user1 = {
+  username: "akshay",
+  password: "123",
+};
+sessionStorage.setItem("currentUser", JSON.stringify(user1));
+console.log(JSON.parse(sessionStorage.getItem("currentUser")));
+// for (let i = 0; i < sessionStorage.length; i++) {
+//   const key = sessionStorage.key(i);
+//   console.log(`${key} =>${sessionStorage.getItem(key)}`);
+// }
+const key = sessionStorage.key;
+const localUsername = sessionStorage.getItem(key);
+const localPassword = key;
+console.log(localUsername, localPassword);
+// https://www.youtube.com/watch?v=RxUc6ZWwgfw&ab_channel=dcode
 
 const validateUser = function () {
   // Username validation

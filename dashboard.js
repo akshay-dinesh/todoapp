@@ -26,7 +26,7 @@ addBtnEl.addEventListener("click", function () {
   });
   tasks.innerHTML = addLiFunction(taskArray);
   taskInput.value = "";
-  console.log(taskArray);
+  // console.log(taskArray);
 });
 
 // List function (Write data to html)
@@ -76,39 +76,62 @@ const deleteTask = function (id) {
 // Switch theme
 const switchThemeEl = document.querySelector(".nav-menu--theme");
 switchThemeEl.addEventListener("click", function () {
-  const sectionDashboardEl = document.querySelector(".section-dashboard");
-  sectionDashboardEl.classList.toggle("dark");
-  const sideMenuEl = document.querySelector(".side-menu");
-  sideMenuEl.classList.toggle("dark");
-  const sectionHeaderEl = document.querySelector(".section-header");
-  sectionHeaderEl.classList.toggle("dark");
-  const todoInputEl = document.querySelector(".todo-input");
-  todoInputEl.classList.toggle("dark");
-  const todoDisplayEl = document.querySelector(".todo-display");
-  todoDisplayEl.classList.toggle("dark");
-  const sectionFooterEl = document.querySelector(".section-footer");
-  sectionFooterEl.classList.toggle("dark");
-  const btnEl = document.querySelector(".btn--todo");
-  btnEl.classList.toggle("dark");
-  const navMenuListLiEl = document.querySelector(".nav-menu--list");
-  navMenuListLiEl.classList.toggle("dark");
+  let classNames = {
+    sectionDashboardEl: ".section-dashboard",
+    sideMenuEl: ".side-menu",
+    sectionHeaderEl: ".section-header",
+    todoInputEl: ".todo-input",
+    todoDisplayEl: ".todo-display",
+    sectionFooterEl: ".section-footer",
+    btnEl: ".btn--todo",
+    navMenuListLiEl: ".nav-menu--list",
+    iconTrashEl: ".icon--trash",
+  };
+  // console.log(classToggle(classNames));
 
-  const iconTrashEl = document.querySelector(".icon--trash");
-  iconTrashEl.classList.toggle("dark");
+  console.log(classNames);
+
+  classNames.forEach(classToggle(key, value) {
+    classToggle(key, value);
+  });
+
+  function classToggle() {
+    return `document.querySelector("${classNames.value}").classList.toggle('dark');`;
+  }
+  // const sectionDashboardEl = document.querySelector(".section-dashboard");
+  // sectionDashboardEl.classList.toggle("dark");
+  // const sideMenuEl = document.querySelector(".side-menu");
+  // sideMenuEl.classList.toggle("dark");
+  // const sectionHeaderEl = document.querySelector(".section-header");
+  // sectionHeaderEl.classList.toggle("dark");
+  // const todoInputEl = document.querySelector(".todo-input");
+  // todoInputEl.classList.toggle("dark");
+  // const todoDisplayEl = document.querySelector(".todo-display");
+  // todoDisplayEl.classList.toggle("dark");
+  // const sectionFooterEl = document.querySelector(".section-footer");
+  // sectionFooterEl.classList.toggle("dark");
+  // const btnEl = document.querySelector(".btn--todo");
+  // btnEl.classList.toggle("dark");
+  // const navMenuListLiEl = document.querySelector(".nav-menu--list");
+  // navMenuListLiEl.classList.toggle("dark");
+
+  // const iconTrashEl = document.querySelector(".icon--trash");
+  // iconTrashEl.classList.toggle("dark");
+
   // const tasksLiOddEl = document.querySelector(".tasks li:nth-child(even)");
   // tasksLiOddEl.classList.toggle("dark");
   // const tasksLiEvenEl = document.querySelector("..tasks li:nth-child(odd)");
   // tasksLiEvenEl.classList.toggle("dark");
 
-  const navMenuListLiHovEl = document.querySelector(".section-dashboard");
-  navMenuListLiHovEl.classList.toggle("dark");
-  const globalEl = document.querySelector(".*");
-  globalEl.classList.toggle("dark");
+  // const navMenuListLiHovEl = document.querySelector(".section-dashboard");
+  // navMenuListLiHovEl.classList.toggle("dark");
+  // const globalEl = document.querySelector(".*");
+  // globalEl.classList.toggle("dark");
 
-  const btnHovEl = document.querySelector(".btn:hover");
-  btnHovEl.classList.toggle("dark");
-  const btnActiveEl = document.querySelector(".btn:active");
-  btnActiveEl.classList.toggle("dark");
+  // const btnHovEl = document.querySelector(".btn:hover");
+  // btnHovEl.classList.toggle("dark");
+  // const btnActiveEl = document.querySelector(".btn:active");
+  // btnActiveEl.classList.toggle("dark");
 });
 
 // Dynamic username // Check if key exists

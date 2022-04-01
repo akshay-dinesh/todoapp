@@ -59,7 +59,8 @@ rgba(0, 0, 0, 0.2); */
 }
 
 .todo-input.dark {
-  background-color: #111111ff !important;
+  background-color: #111111ff;
+  color: #fff !important;
 }
 
 .todo-display.dark {
@@ -81,6 +82,7 @@ rgba(0, 0, 0, 0.2); */
 /* NAVIGATION  */
 .side-menu.dark {
   background-color: #111111ff !important;
+  color: #fff;
 }
 
 .nav-menu--list li.dark {
@@ -100,9 +102,9 @@ rgba(0, 0, 0, 0.2); */
 /* ************************* */
 /* ************************* */
 
-/* *.dark {
+*.dark {
   color: #ffffffff !important;
-} */
+}
 
 .btn.dark {
   background-color: #0761d1ff !important;

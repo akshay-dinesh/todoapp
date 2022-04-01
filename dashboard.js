@@ -1,9 +1,15 @@
 "use strict";
 
+const TaskStatus = {
+  TODO: "TODO",
+  INPROGRESS: "INPROGRESS",
+  DONE: "DONE",
+};
+
 // List variables (for input)
 const addBtnEl = document.getElementById("add-task");
 const taskInput = document.getElementById("task-input-text");
-const taskArray = [];
+let taskArray = [];
 
 // List variables (for writing to html)
 let li = document.createElement("li");
@@ -11,15 +17,27 @@ const tasks = document.getElementById("tasks");
 
 // List function (read data from html)
 addBtnEl.addEventListener("click", function () {
-  taskArray.push(taskInput.value);
+  // taskArray.push(taskInput.value);
+  taskArray.push({
+    id: taskArray.length + 1,
+    value: taskInput.value,
+    status: TaskStatus.TODO,
+    createdDate: new Date(),
+  });
   tasks.innerHTML = addLiFunction(taskArray);
+  taskInput.value = "";
+  console.log(taskArray);
 });
 
 // List function (Write data to html)
 function addLiFunction(item) {
+  return renderList(item);
+}
+
+function renderList(item) {
   let items = "";
   for (let i = 0; i < item.length; i++) {
-    items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i]}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(this.id)" name="trash-outline"></ion-icon></li>`;
+    items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
   }
   return items;
 }
@@ -40,10 +58,19 @@ const strikeThrough = function (id) {
 
 // Delete task (trash can div)
 const deleteTask = function (id) {
-  const iconId = document.getElementById(id);
-  const parent = iconId.parentElement;
-  parent.remove();
-  taskArray.splice(id - 1, id);
+  console.log(id);
+  // const iconId = document.getElementById(id);
+  // const parent = iconId.parentElement;
+  // parent.remove();
+  const deletedArray = (taskArray = taskArray.filter((obj) => {
+    console.log(obj);
+    return obj.id !== id;
+  }));
+  renderList(taskArray);
+  tasks.innerHTML = addLiFunction(taskArray);
+  return deletedArray;
+  // taskArray.splice(id - 1, id);
+  console.log("after delete-->", taskArray);
 };
 
 // Switch theme
@@ -63,15 +90,16 @@ switchThemeEl.addEventListener("click", function () {
   sectionFooterEl.classList.toggle("dark");
   const btnEl = document.querySelector(".btn--todo");
   btnEl.classList.toggle("dark");
+  const navMenuListLiEl = document.querySelector(".nav-menu--list");
+  navMenuListLiEl.classList.toggle("dark");
+
+  const iconTrashEl = document.querySelector(".icon--trash");
+  iconTrashEl.classList.toggle("dark");
   // const tasksLiOddEl = document.querySelector(".tasks li:nth-child(even)");
   // tasksLiOddEl.classList.toggle("dark");
   // const tasksLiEvenEl = document.querySelector("..tasks li:nth-child(odd)");
   // tasksLiEvenEl.classList.toggle("dark");
-  const iconTrashEl = document.querySelector(".icon--trash");
-  iconTrashEl.classList.toggle("dark");
 
-  const navMenuListLiEl = document.querySelectorAll(".nav-menu--list");
-  navMenuListLiEl.classList.toggle("dark");
   const navMenuListLiHovEl = document.querySelector(".section-dashboard");
   navMenuListLiHovEl.classList.toggle("dark");
   const globalEl = document.querySelector(".*");

@@ -252,6 +252,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: #2a2f33;
+  user-select: none;
 }
 
 .nav-icon {

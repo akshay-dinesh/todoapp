@@ -35,28 +35,28 @@
           </div>
           <nav class="nav-menu">
             <ul class="nav-menu--list">
-              <li class="">
+              <li class="nav-menu--list--item">
                 <a>
                   <ion-icon class="nav-icon" name="contrast-outline"></ion-icon>
-                  Theme
+                  <p>Theme</p>
                 </a>
               </li>
-              <li class="nav-menu--reset">
+              <li class="nav-menu--list--item nav-menu--reset">
                 <a>
                   <ion-icon class="nav-icon" name="refresh-outline"></ion-icon>
-                  Reset
+                  <p>Reset</p>
                 </a>
               </li>
-              <li class="nav-menu--theme">
+              <li class="nav-menu--list--item nav-menu--theme">
                 <a>
                   <ion-icon class="nav-icon" name="contrast-outline"></ion-icon>
-                  Switch Theme
+                  <p>Switch Theme</p>
                 </a>
               </li>
-              <li class="nav-menu--logout">
+              <li class="nav-menu--list--item nav-menu--logout">
                 <a href="index.html">
                   <ion-icon class="nav-icon" name="log-out-outline"></ion-icon>
-                  Logout
+                  <p>Logout</p>
                 </a>
               </li>
             </ul>
@@ -65,7 +65,7 @@
         <div class="todo-input grid">
           <p id="input-header" class="input-header">Enter the task to be added</p>
           <p id="date" class="date">&nbsp;</p>
-          <input class="input-text" type="task" id="task-input-text" placeholder="Enter task here" />
+          <input class="input-text" type="task" id="task-input-text" placeholder="Enter task here" required />
           <button id="add-task" class="btn btn--todo">Add task</button>
         </div>
         <div class="todo-display">

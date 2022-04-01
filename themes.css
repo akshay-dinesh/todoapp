@@ -55,24 +55,23 @@ rgba(0, 0, 0, 0.2); */
 /* ************************* */
 
 .section-dashboard.dark {
-  background-color: #000000ff !important;
-}
-
-.todo-input.dark {
   background-color: #111111ff;
-  color: #fff !important;
 }
 
-.todo-display.dark {
-  background-color: #111111ff !important;
+.todo-display.dark,
+.todo-input.dark,
+.side-menu.dark,
+.section-header.dark,
+.section-footer.dark {
+  background-color: #212224ff;
 }
 
-.tasks li:nth-child(even).dark {
-  background-color: #29b9f0ff !important;
+.tasks.dark li:nth-child(even) {
+  background-color: #29b9f0ff;
 }
 
-.tasks li:nth-child(odd).dark {
-  background-color: #0761d1ff !important;
+.tasks.dark li:nth-child(odd) {
+  background-color: #0761d1ff;
 }
 
 .icon--trash.dark {
@@ -80,54 +79,29 @@ rgba(0, 0, 0, 0.2); */
 }
 
 /* NAVIGATION  */
-.side-menu.dark {
-  background-color: #111111ff !important;
-  color: #fff;
+.btn.dark,
+.nav-menu--list.dark li {
+  background-color: #0761d1ff;
 }
 
-.nav-menu--list li.dark {
-  color: #333333ff !important;
-  background-color: #a5d8ff !important;
-}
-
-.nav-menu--list li:hover.dark {
-  background-color: #0761d1ff !important;
-}
-
-/* ************************* */
-/* ************************* */
-/* ************************* */
-/*          GLOBAL
-/* ************************* */
-/* ************************* */
-/* ************************* */
-
-*.dark {
-  color: #ffffffff !important;
-}
-
-.btn.dark {
-  background-color: #0761d1ff !important;
-}
-
-.btn:hover.dark,
-.btn:active.dark {
+.nav-menu--list.dark li:hover,
+.btn.dark:hover,
+.btn.dark:active {
   background-color: #339af0;
 }
 
-/* ************************* */
-/* Header section  */
-/* ************************* */
-
-.section-header.dark {
-  background-color: #333333ff;
-  box-shadow: 0 0 36px 8px rgb(255, 255, 255, 0.5);
+.section-header.dark,
+.section-footer.dark {
+  box-shadow: 0 0 36px 1px rgba(255, 255, 255, 0.219);
 }
 
-/* ************************* */
-/* Footer section  */
-/* ************************* */
-.section-footer.dark {
-  background-color: #333333ff;
-  box-shadow: 0 0 36px 8px rgba(255, 255, 255, 0.5);
+.section-header.dark,
+.section-header.dark .heading-primary,
+.todo-input.dark,
+.todo-input.dark .date,
+.todo-input.dark .input-header,
+.todo-input.dark .btn--todo,
+.nav-menu--list.dark li,
+.side-menu.dark .user-name {
+  color: #fff;
 }

@@ -38,12 +38,49 @@ const strikeThrough = function (id) {
   itemId.classList.toggle("strike-through");
 };
 
-// Delete task (trash can icon)
+// Delete task (trash can div)
 const deleteTask = function (id) {
   const iconId = document.getElementById(id);
   const parent = iconId.parentElement;
-  parent.classList.add("hidden");
+  parent.remove();
+  taskArray.splice(id - 1, id);
 };
+
+// Switch theme
+const switchThemeEl = document.querySelector(".nav-menu--theme");
+switchThemeEl.addEventListener("click", function () {
+  const sectionDashboardEl = document.querySelector(".section-dashboard");
+  sectionDashboardEl.classList.toggle("dark");
+  const todoInputEl = document.querySelector(".todo-input");
+  todoInputEl.classList.toggle("dark");
+  const todoDisplayEl = document.querySelector(".todo-display");
+  todoDisplayEl.classList.toggle("dark");
+  const tasksLiOddEl = document.querySelector(".tasks li:nth-child(even)");
+  tasksLiOddEl.classList.toggle("dark");
+  const tasksLiEvenEl = document.querySelector("..tasks li:nth-child(odd)");
+  tasksLiEvenEl.classList.toggle("dark");
+  const iconTrashEl = document.querySelector(".icon--trash");
+  iconTrashEl.classList.toggle("dark");
+  const sideMenuEl = document.querySelector(".side-menu");
+  sideMenuEl.classList.toggle("dark");
+  const navMenuListLiEl = document.querySelector(".nav-menu--list li");
+  navMenuListLiEl.classList.toggle("dark");
+  const navMenuListLiHovEl = document.querySelector(".section-dashboard");
+  navMenuListLiHovEl.classList.toggle("dark");
+  const globalEl = document.querySelector("*");
+  globalEl.style.color = "#ffffffff";
+  const btnEl = document.querySelector(".btn--todo");
+  btnEl.classList.toggle("dark");
+  const btnHovEl = document.querySelector(".btn:hover");
+  btnHovEl.classList.toggle("dark");
+  const btnActiveEl = document.querySelector(".btn:active");
+  btnActiveEl.classList.toggle("dark");
+  const sectionHeaderEl = document.querySelector(".section-header");
+  sectionHeaderEl.classList.toggle("dark");
+  const sectionFooterEl = document.querySelector(".section-footer.dark");
+  sectionFooterEl.classList.toggle("dark");
+});
+
 // Dynamic username // Check if key exists
 // const userEl = document.querySelector("#user");
 // const params = new URLSearchParams(window.location.search);

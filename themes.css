@@ -1,0 +1,131 @@
+/* ------------------------------------------------- */
+/* Dark THEME */
+
+/* ---  COLORS
+
+- Primary :#d0ebff;
+- Tints :#f6fbff;
+#2a2f33; (Font color)
+#850000; (error border)
+#004700; (success border)
+#e8f5ff; (even bg color)
+#d5edff;(odd bg color)
+- Shades :
+- Accents :
+- Greys :
+
+
+--- 05 SHADOWS
+rgba(0, 0, 0, 0.2); */
+
+/* ************************* */
+/* Login section */
+/* ************************* */
+.section-login .dark {
+  background-color: #d0ebff;
+}
+
+.login .dark {
+  background-color: #f6fbff;
+  box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.2);
+}
+
+.icon--error .dark {
+  color: #850000;
+}
+
+.icon--success {
+  color: #004700;
+}
+
+.error-message .dark {
+  color: #850000;
+}
+
+.success input .dark {
+  border: 2px solid #004700;
+}
+
+.failure input .dark {
+  border: 2px solid #850000;
+}
+
+/* ************************* */
+/* Dashboard section  */
+/* ************************* */
+
+.section-dashboard.dark {
+  background-color: #000000ff !important;
+}
+
+.todo-input.dark {
+  background-color: #111111ff !important;
+}
+
+.todo-display.dark {
+  background-color: #111111ff !important;
+}
+
+.tasks li:nth-child(even).dark {
+  background-color: #29b9f0ff !important;
+}
+
+.tasks li:nth-child(odd).dark {
+  background-color: #0761d1ff !important;
+}
+
+.icon--trash.dark {
+  color: #fff !important;
+}
+
+/* NAVIGATION  */
+.section-dashboard.dark.side-menu.dark {
+  background-color: #111111ff !important;
+}
+
+.nav-menu--list li.dark {
+  color: #333333ff !important;
+  background-color: #a5d8ff !important;
+}
+
+.nav-menu--list li:hover.dark {
+  background-color: #0761d1ff !important;
+}
+
+/* ************************* */
+/* ************************* */
+/* ************************* */
+/*          GLOBAL
+/* ************************* */
+/* ************************* */
+/* ************************* */
+
+*.dark {
+  color: #ffffffff !important;
+}
+
+.btn.dark {
+  background-color: #0761d1ff !important;
+}
+
+.btn:hover.dark,
+.btn:active.dark {
+  background-color: #339af0;
+}
+
+/* ************************* */
+/* Header section  */
+/* ************************* */
+
+.section-header.dark {
+  background-color: #333333ff;
+  box-shadow: 0 0 36px 8px rgb(255, 255, 255, 0.5);
+}
+
+/* ************************* */
+/* Footer section  */
+/* ************************* */
+.section-footer.dark {
+  background-color: #333333ff;
+  box-shadow: 0 0 36px 8px rgba(255, 255, 255, 0.5);
+}

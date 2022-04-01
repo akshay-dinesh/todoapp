@@ -36,13 +36,13 @@ console.log(localUsername, localPassword);
 
 const validateUser = function () {
   // Username validation
-  if (!(uNameEl.value.trim() == localUsername)) {
+  if (!(uNameEl.value.trim() == "akshay")) {
     displayError(uNameEl, "Wrong username");
   } else {
     displaySuccess(uNameEl);
   }
   // Password validation
-  if (!(pWordEl.value.trim() == localPassword)) {
+  if (!(pWordEl.value.trim() == "123")) {
     displayError(pWordEl, "Wrong password");
   } else {
     displaySuccess(pWordEl);

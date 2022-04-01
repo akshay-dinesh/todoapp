@@ -34,7 +34,7 @@ rgba(0, 0, 0, 0.2); */
   color: #850000;
 }
 
-.icon--success {
+.icon--success.dark {
   color: #004700;
 }
 
@@ -79,7 +79,7 @@ rgba(0, 0, 0, 0.2); */
 }
 
 /* NAVIGATION  */
-.section-dashboard.dark.side-menu.dark {
+.side-menu.dark {
   background-color: #111111ff !important;
 }
 
@@ -100,9 +100,9 @@ rgba(0, 0, 0, 0.2); */
 /* ************************* */
 /* ************************* */
 
-*.dark {
+/* *.dark {
   color: #ffffffff !important;
-}
+} */
 
 .btn.dark {
   background-color: #0761d1ff !important;

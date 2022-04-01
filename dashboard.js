@@ -19,7 +19,7 @@ addBtnEl.addEventListener("click", function (event) {
 function addLiFunction(item) {
   let items = "";
   for (let i = 0; i < item.length; i++) {
-    items += `<li class="task"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon>${item[i]}</li>`;
+    items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i]}</p><ion-icon id="trash${i}" class="icon--trash" name="trash-outline"></ion-icon></li>`;
   }
   return items;
 }
@@ -32,6 +32,17 @@ const year = currentDate.getFullYear();
 const dateString = `Today's date: ${date}/${month}/${year}`;
 document.getElementById("date").innerHTML = dateString;
 
+// Strike out task
+const strikeThrough = function (id) {
+  const itemId = document.getElementById(id);
+  itemId.classList.toggle("strike-through");
+};
+
+// Delete task (trash can icon)
+const deleteTask = function (id) {
+  const trashId = document.getElementById(id);
+  const trashParent = parent.trashId.classList.toggle("strike-through");
+};
 // Dynamic username // Check if key exists
 // const userEl = document.querySelector("#user");
 // const params = new URLSearchParams(window.location.search);
@@ -53,11 +64,3 @@ document.getElementById("date").innerHTML = dateString;
 //   userEl.append(`${key} = ${value}`);
 //   userEl.append(document.createElement("br"));
 // });
-
-// Strike out task
-const taskEl = document.querySelector(".task");
-if (taskEl != null) {
-  taskEl.addEventListener("click", function () {
-    taskEl.classList.add("strike-through");
-  });
-}

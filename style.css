@@ -152,6 +152,8 @@
   border-radius: 11px;
   display: flex;
   cursor: pointer;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .tasks li:nth-child(even) {
@@ -160,6 +162,29 @@
 
 .tasks li:nth-child(odd) {
   background-color: #d5edff;
+}
+
+.icon--trash,
+.icon--list {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.icon--trash {
+  margin-left: auto;
+  color: #850000;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.no-select p {
+  width: 100%;
+}
+
+.strike-through {
+  text-decoration: line-through;
 }
 
 /* NAVIGATION  */
@@ -202,17 +227,15 @@
 }
 
 .nav-menu--list li {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   list-style: none;
   font-size: 2.4rem;
+  font-weight: 500;
   padding: 1.2rem;
   border-radius: 9px;
   background-color: #a5d8ff;
-  gap: 1rem;
   cursor: pointer;
   transition: all 0.3s;
+  width: 100%;
 }
 
 .nav-menu--list li:hover {
@@ -223,12 +246,16 @@
   margin-bottom: 1.2rem;
 }
 
-.icon--list {
-  height: 2.4rem;
-  width: 2.4rem;
+.nav-menu--list a {
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .nav-icon {
   width: 2.4rem;
   height: 2.4rem;
+  margin-right: 1rem;
 }

@@ -90,6 +90,10 @@ html {
   background-color: #339af0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* ************************* */
 /* Grid  */
 /* ************************* */

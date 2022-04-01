@@ -69,7 +69,23 @@
         </div>
         <div class="todo-display">
           <div class="task-list">
-            <ul id="tasks" class="tasks"></ul>
+            <ul id="tasks" class="tasks">
+              <li class="no-select">
+                <ion-icon class="icon--list md hydrated" name="chevron-forward-outline" role="img"
+                  aria-label="chevron forward outline"></ion-icon>
+                <p id="task0" onmousedown="strikeThrough(this.id)">123</p>
+                <ion-icon id="trash0" class="icon--trash md hydrated" onmousedown="deleteTask(this.id)"
+                  name="trash-outline" role="img" aria-label="trash outline"></ion-icon>
+              </li>
+              <li class="no-select">
+                <ion-icon class="icon--list md hydrated" name="chevron-forward-outline" role="img"
+                  aria-label="chevron forward outline"></ion-icon>
+                <p id="task1" onmousedown="strikeThrough(this.id)">123123</p>
+                <ion-icon id="trash1" class="icon--trash md hydrated" onmousedown="deleteTask(this.id)"
+                  name="trash-outline" role="img" aria-label="trash outline"></ion-icon>
+              </li>
+
+            </ul>
           </div>
         </div>
       </div>

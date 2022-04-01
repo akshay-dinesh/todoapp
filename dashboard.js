@@ -9,17 +9,17 @@ const taskArray = [];
 let li = document.createElement("li");
 const tasks = document.getElementById("tasks");
 
-// List function (read and write data from html)
-addBtnEl.addEventListener("click", function (event) {
-  event.preventDefault();
+// List function (read data from html)
+addBtnEl.addEventListener("click", function () {
   taskArray.push(taskInput.value);
   tasks.innerHTML = addLiFunction(taskArray);
 });
 
+// List function (Write data to html)
 function addLiFunction(item) {
   let items = "";
   for (let i = 0; i < item.length; i++) {
-    items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i]}</p><ion-icon id="trash${i}" class="icon--trash" name="trash-outline"></ion-icon></li>`;
+    items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i]}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(this.id)" name="trash-outline"></ion-icon></li>`;
   }
   return items;
 }
@@ -40,8 +40,9 @@ const strikeThrough = function (id) {
 
 // Delete task (trash can icon)
 const deleteTask = function (id) {
-  const trashId = document.getElementById(id);
-  const trashParent = parent.trashId.classList.toggle("strike-through");
+  const iconId = document.getElementById(id);
+  const parent = iconId.parentElement;
+  parent.classList.add("hidden");
 };
 // Dynamic username // Check if key exists
 // const userEl = document.querySelector("#user");

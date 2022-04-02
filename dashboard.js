@@ -10,8 +10,7 @@ let li = document.createElement("li");
 const tasks = document.getElementById("tasks");
 let taskArray = [];
 let theme;
-
-htmlEl.onload = checkTheme();
+checkTheme();
 
 // Function to check page theme
 function checkTheme() {
@@ -20,19 +19,18 @@ function checkTheme() {
   } else {
     theme = false;
   }
-  console.log(theme);
   return theme;
 }
 
 // Function to toggle between light/dark themes
-const toggleTheme = function () {
-  if (theme === true) {
-    theme = false;
-  } else if (theme === false) {
-    theme = true;
-  }
-  return theme;
-};
+// const toggleTheme = function () {
+//   if (theme === true) {
+//     theme = false;
+//   } else if (theme === false) {
+//     theme = true;
+//   }
+//   return theme;
+// };
 
 const TaskStatus = {
   TODO: "TODO",
@@ -61,12 +59,13 @@ function addLiFunction(item) {
 
 function renderList(item) {
   let items = "";
-  theme = checkTheme(theme);
+  theme = checkTheme();
+  console.log(theme);
   for (let i = 0; i < item.length; i++) {
-    if (theme === "light") {
-      items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
-    } else if (theme === "dark") {
-      items += `<li class="no-select dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+    if (theme === true) {
+      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+    } else if (theme === false) {
+      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
     }
   }
   return theme, items;
@@ -108,6 +107,8 @@ const deleteTask = function (id) {
 
 // Switch theme
 switchThemeEl.addEventListener("click", function () {
+  theme = checkTheme();
+  console.log(theme);
   let classNames = {
     htmlEl: "html",
     sectionDashboardEl: ".section-dashboard",
@@ -118,6 +119,7 @@ switchThemeEl.addEventListener("click", function () {
     sectionFooterEl: ".section-footer",
     btnEl: ".btn--todo",
     navMenuListLiEl: ".nav-menu--list",
+    tasksEl: ".tasks",
   };
   const className = Object.keys(classNames);
   for (let i = 0; i < className.length; i++) {

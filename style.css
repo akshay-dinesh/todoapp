@@ -186,11 +186,11 @@
   user-select: none;
 }
 
-.no-select p {
+.tasks--added-task p {
   width: 100%;
 }
 
-.no-select * {
+.tasks--added-task * {
   padding: 0 1.2rem;
 }
 
@@ -257,7 +257,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  user-select: none;
 }
 
 .nav-icon {

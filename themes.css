@@ -78,8 +78,6 @@ rgba(0, 0, 0, 0.2); */
 .task-list--header.dark {
   background-color: #0d0e0e;
   color: #fff;
-  border-bottom: 1px solid #f6fbff;
-  border-top: 1px solid #f6fbff;
 }
 
 .tasks--added-task.dark ion-icon {
@@ -100,9 +98,12 @@ rgba(0, 0, 0, 0.2); */
   color: #000;
 }
 
-.section-header.dark,
-.section-footer.dark {
-  box-shadow: 0 0 36px 1px rgba(255, 255, 255, 0.219);
+/* .section-header.dark,
+.section-footer.dark, */
+.side-menu.light,
+.todo-input.light,
+.todo-display.light {
+  box-shadow: 0 0 36px 1px rgba(255, 255, 255, 0.2);
 }
 
 .section-header.dark .heading-primary,
@@ -115,6 +116,16 @@ rgba(0, 0, 0, 0.2); */
 .nav-menu--list.dark a:visited,
 .tasks--added.dark {
   color: #ffffff;
+}
+
+.input-text.dark {
+  transition: none;
+}
+
+.todo-input--warning.dark.active {
+  transition: none;
+  color: #ed4747;
+  visibility: hidden;
 }
 
 /* ------------------------------------------------- */
@@ -212,9 +223,12 @@ rgba(0, 0, 0, 0.2); */
   color: #000000;
 }
 
-.section-header.light,
-.section-footer.light {
-  box-shadow: 0 0 36px 8px rgba(0, 0, 0, 0.2);
+/* .section-header.light,
+.section-footer.light, */
+.side-menu.light,
+.todo-input.light,
+.todo-display.light {
+  box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section-header.light .heading-primary,
@@ -226,4 +240,14 @@ rgba(0, 0, 0, 0.2); */
 .nav-menu--list.light a:link,
 .nav-menu--list.light a:visited {
   color: #202427;
+}
+
+/* .input-text.light {
+  transition: none;
+} */
+
+.todo-input--warning.light.active {
+  transition: none;
+  color: #850000;
+  visibility: hidden;
 }

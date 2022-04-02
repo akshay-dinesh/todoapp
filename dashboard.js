@@ -22,34 +22,47 @@ function checkTheme() {
   return theme;
 }
 
-// Function to toggle between light/dark themes
-// const toggleTheme = function () {
-//   if (theme === true) {
-//     theme = false;
-//   } else if (theme === false) {
-//     theme = true;
-//   }
-//   return theme;
-// };
-
 const TaskStatus = {
   TODO: "TODO",
   INPROGRESS: "INPROGRESS",
   DONE: "DONE",
 };
 
-// List function (read data from html)
+function displayWarning() {
+  document.querySelector(".todo-input--warning").classList.add("active");
+}
+
+function removeWarning() {
+  document.querySelector(".todo-input--warning").classList.remove("active");
+  document.querySelector(".input-text").style.border = "none";
+}
+
+// Task List function
 addBtnEl.addEventListener("click", function () {
-  // taskArray.push(taskInput.value);
-  taskArray.push({
-    id: taskArray.length + 1,
-    value: taskInput.value,
-    status: TaskStatus.TODO,
-    createdDate: dateNow(),
-  });
-  tasks.innerHTML = addLiFunction(taskArray);
-  taskInput.value = "";
-  // console.log(taskArray);
+  theme = checkTheme();
+  if (taskInput.value == "") {
+    displayWarning();
+    // document.querySelector(".input-text").style.border = "2px solid #850000";
+    // if (theme === true) {
+    //   document.querySelector(".todo-input--warning").classList.add("active");
+    // } else if (theme === false) {
+    //   document
+    //     .querySelector(".todo-input--warning.dark")
+    //     .classList.add("active");
+    // }
+  } else {
+    // taskArray.push(taskInput.value);
+    removeWarning();
+    taskArray.push({
+      id: taskArray.length + 1,
+      value: taskInput.value,
+      status: TaskStatus.TODO,
+      createdDate: dateNow(),
+    });
+    tasks.innerHTML = addLiFunction(taskArray);
+    taskInput.value = "";
+    // console.log(taskArray);
+  }
 });
 
 // List function (Write data to html)
@@ -60,7 +73,6 @@ function addLiFunction(item) {
 function renderList(item) {
   let items = "";
   theme = checkTheme();
-  console.log(theme);
   for (let i = 0; i < item.length; i++) {
     if (theme === true) {
       items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
@@ -107,6 +119,7 @@ const deleteTask = function (id) {
 
 // Switch theme
 switchThemeEl.addEventListener("click", function () {
+  document.querySelector(".todo-input--warning").classList.remove("active");
   theme = checkTheme();
   console.log(theme);
   let classNames = {
@@ -122,6 +135,8 @@ switchThemeEl.addEventListener("click", function () {
     tasksEl: ".tasks",
     taskListHeaderEl: ".task-list--header",
     ionIconTask: ".tasks--added-task",
+    inputWarning: ".todo-input--warning",
+    inputTextWarning: ".input-text",
   };
   const className = Object.keys(classNames);
   for (let i = 0; i < className.length; i++) {

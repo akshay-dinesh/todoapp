@@ -70,7 +70,7 @@
 }
 
 .active {
-  visibility: visible;
+  visibility: visible !important;
 }
 
 .error-message {
@@ -107,13 +107,25 @@
 .todo-input {
   grid-gap: 1.6rem;
   grid-template-columns: 4fr 1fr;
-  padding: 2.4rem;
+  padding: 1.6rem 2.4rem 2.4rem 1.6rem;
   border-radius: 11px;
+  position: relative;
 }
 
 .input-header {
   font-size: 2.4rem;
-  font-weight: 500;
+  font-weight: 600;
+  padding-left: 1.2rem;
+}
+
+.todo-input--warning {
+  padding-left: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  visibility: hidden;
+  position: absolute;
+  bottom: 2px;
+  left: 18px;
 }
 
 .date {

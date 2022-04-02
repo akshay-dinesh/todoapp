@@ -134,9 +134,24 @@
 
 .todo-display {
   background-color: #f6fbff;
-  padding: 2.4rem;
   border-radius: 11px;
   overflow-y: scroll;
+}
+
+.task-list--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #339af0;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.task-list--header--element {
+  font-size: 2.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0 1.2rem;
 }
 
 .tasks {
@@ -181,6 +196,10 @@
 
 .no-select p {
   width: 100%;
+}
+
+.no-select * {
+  padding: 0 1.2rem;
 }
 
 .strike-through {

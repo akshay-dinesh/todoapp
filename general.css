@@ -54,7 +54,8 @@ rgba(0, 0, 0, 0.2);
 .date,
 .input-header,
 .username,
-.heading-primary {
+.heading-primary,
+.task-list--header {
   color: #2a2f33;
 }
 

@@ -67,16 +67,24 @@ rgba(0, 0, 0, 0.2); */
 }
 
 .tasks.dark li:nth-child(even) {
-  background-color: #ea558dff;
+  background-color: #f599b8;
 }
 
 .tasks.dark li:nth-child(odd) {
-  background-color: #0761d1ff;
+  background-color: #c9a9e5;
+  color: #000000;
 }
 
-/* .icon--trash.dark {
-  color: #fff !important;
-} */
+.task-list--header.dark {
+  background-color: #0d0e0e;
+  color: #fff;
+  border-bottom: 1px solid #f6fbff;
+  border-top: 1px solid #f6fbff;
+}
+
+.tasks--added-task.dark ion-icon {
+  color: #000000;
+}
 
 /* NAVIGATION  */
 .btn.dark,
@@ -104,7 +112,8 @@ rgba(0, 0, 0, 0.2); */
 .nav-menu--list.dark li,
 .side-menu.dark .user-name,
 .nav-menu--list.dark a:link,
-.nav-menu--list.dark a:visited {
+.nav-menu--list.dark a:visited,
+.tasks--added.dark {
   color: #ffffff;
 }
 
@@ -180,9 +189,14 @@ rgba(0, 0, 0, 0.2); */
   background-color: #d5edff;
 }
 
-/* .icon--trash.light {
-  color: #850000;
-} */
+.task-list--header.light {
+  background-color: #094272;
+  color: #ffffff;
+}
+
+.tasks--added-task.light ion-icon {
+  color: #000000;
+}
 
 /* NAVIGATION  */
 .btn.light,

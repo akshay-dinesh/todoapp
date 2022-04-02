@@ -139,7 +139,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #75bbf5;
   padding: 1.2rem;
   margin-bottom: 1.2rem;
 }
@@ -151,7 +150,6 @@
   display: flex;
   align-items: center;
   padding: 0 1.2rem;
-  color: #000000;
 }
 
 .tasks {
@@ -163,6 +161,7 @@
 .tasks li {
   list-style: none;
   font-size: 1.8rem;
+  font-weight: 500;
   padding: 1.2rem;
   border-radius: 11px;
   display: flex;
@@ -177,10 +176,9 @@
   width: 2.4rem;
 }
 
-.icon--trash {
+/* .icon--trash {
   margin-left: auto;
-  color: #850000;
-}
+} */
 
 .no-select {
   user-select: none;

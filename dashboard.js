@@ -120,6 +120,8 @@ switchThemeEl.addEventListener("click", function () {
     btnEl: ".btn--todo",
     navMenuListLiEl: ".nav-menu--list",
     tasksEl: ".tasks",
+    taskListHeaderEl: ".task-list--header",
+    ionIconTask: ".tasks--added-task",
   };
   const className = Object.keys(classNames);
   for (let i = 0; i < className.length; i++) {

@@ -1,19 +1,44 @@
 "use strict";
+// HTML Elements declaration
+const addBtnEl = document.getElementById("add-task");
+const taskInput = document.getElementById("task-input-text");
+const switchThemeEl = document.querySelector(".nav-menu--theme");
+let htmlEl = document.querySelector("html");
+
+// Other variables declaration
+let li = document.createElement("li");
+const tasks = document.getElementById("tasks");
+let taskArray = [];
+let theme;
+
+htmlEl.onload = checkTheme();
+
+// Function to check page theme
+function checkTheme() {
+  if (htmlEl.classList.contains("light")) {
+    theme = true;
+  } else {
+    theme = false;
+  }
+  console.log(theme);
+  return theme;
+}
+
+// Function to toggle between light/dark themes
+const toggleTheme = function () {
+  if (theme === true) {
+    theme = false;
+  } else if (theme === false) {
+    theme = true;
+  }
+  return theme;
+};
 
 const TaskStatus = {
   TODO: "TODO",
   INPROGRESS: "INPROGRESS",
   DONE: "DONE",
 };
-
-// List variables (for input)
-const addBtnEl = document.getElementById("add-task");
-const taskInput = document.getElementById("task-input-text");
-let taskArray = [];
-
-// List variables (for writing to html)
-let li = document.createElement("li");
-const tasks = document.getElementById("tasks");
 
 // List function (read data from html)
 addBtnEl.addEventListener("click", function () {
@@ -22,7 +47,7 @@ addBtnEl.addEventListener("click", function () {
     id: taskArray.length + 1,
     value: taskInput.value,
     status: TaskStatus.TODO,
-    createdDate: new Date(),
+    createdDate: dateNow(),
   });
   tasks.innerHTML = addLiFunction(taskArray);
   taskInput.value = "";
@@ -36,19 +61,27 @@ function addLiFunction(item) {
 
 function renderList(item) {
   let items = "";
+  theme = checkTheme(theme);
   for (let i = 0; i < item.length; i++) {
-    items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+    if (theme === "light") {
+      items += `<li class="no-select"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+    } else if (theme === "dark") {
+      items += `<li class="no-select dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+    }
   }
-  return items;
+  return theme, items;
 }
 
-// Date in HTML
-const currentDate = new Date();
-const date = currentDate.getDate();
-const month = currentDate.getMonth() + 1;
-const year = currentDate.getFullYear();
-const dateString = `Today's date: ${date}/${month}/${year}`;
-document.getElementById("date").innerHTML = dateString;
+// Date function
+function dateNow() {
+  const currentDate = new Date();
+  const date = currentDate.getDate();
+  const month = currentDate.getMonth() + 1;
+  const year = currentDate.getFullYear();
+  const dateString = `${date}/${month}/${year}`;
+  return dateString;
+}
+document.getElementById("date").innerHTML = `Today's date : ${dateNow()}`;
 
 // Strike out task
 const strikeThrough = function (id) {
@@ -74,9 +107,9 @@ const deleteTask = function (id) {
 };
 
 // Switch theme
-const switchThemeEl = document.querySelector(".nav-menu--theme");
 switchThemeEl.addEventListener("click", function () {
   let classNames = {
+    htmlEl: "html",
     sectionDashboardEl: ".section-dashboard",
     sideMenuEl: ".side-menu",
     sectionHeaderEl: ".section-header",
@@ -85,13 +118,24 @@ switchThemeEl.addEventListener("click", function () {
     sectionFooterEl: ".section-footer",
     btnEl: ".btn--todo",
     navMenuListLiEl: ".nav-menu--list",
-    // iconTrashEl: ".icon--trash",
   };
   const className = Object.keys(classNames);
   for (let i = 0; i < className.length; i++) {
-    document
-      .querySelector(`${classNames[className[i]]}`)
-      .classList.toggle("dark");
+    if (theme === true) {
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.remove("light");
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.add("dark");
+    } else if (theme === false) {
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.remove("dark");
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.add("light");
+    }
   }
 });
 

@@ -17,7 +17,7 @@
 
 - Primary :#d0ebff;
 - Tints :#f6fbff;
-#2a2f33; (Font color)
+#202427 (font color)
 #850000; (error border)
 #004700; (success border)
 #e8f5ff; (even bg color)
@@ -25,6 +25,10 @@
 - Shades :
 - Accents :
 - Greys :
+
+---- Dark mode
+Dashboard list header - #75BBF5;
+
 
 
 --- 05 SHADOWS
@@ -47,16 +51,9 @@ rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
 }
 
-.dark {
-  transition: all 0.3s;
-}
-
-.date,
-.input-header,
-.username,
-.heading-primary,
-.task-list--header {
-  color: #2a2f33;
+.dark,
+.light {
+  transition: all 0.5s;
 }
 
 html {
@@ -89,17 +86,10 @@ html {
   font-size: 2.4rem;
   font-weight: 600;
   font-family: inherit;
-  background-color: #a5d8ff;
   cursor: pointer;
   transition: all 0.3s;
   text-align: center;
   border: none;
-  color: #2a2f33;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: #339af0;
 }
 
 .hidden {
@@ -142,12 +132,10 @@ html {
 /* ************************* */
 
 .section-header {
-  background-color: #f6fbff;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 36px 8px rgba(0, 0, 0, 0.2);
   padding: 4.8rem;
   text-transform: uppercase;
 }
@@ -161,7 +149,5 @@ html {
 /* Footer section  */
 /* ************************* */
 .section-footer {
-  background-color: #f6fbff;
-  box-shadow: 0 0 36px 8px rgba(0, 0, 0, 0.2);
   padding: 4.8rem;
 }

@@ -1,5 +1,5 @@
 /* ------------------------------------------------- */
-/* Dark THEME */
+/* DARK THEME */
 
 /* ---  COLORS
 
@@ -67,7 +67,7 @@ rgba(0, 0, 0, 0.2); */
 }
 
 .tasks.dark li:nth-child(even) {
-  background-color: #29b9f0ff;
+  background-color: #ea558dff;
 }
 
 .tasks.dark li:nth-child(odd) {
@@ -81,13 +81,15 @@ rgba(0, 0, 0, 0.2); */
 /* NAVIGATION  */
 .btn.dark,
 .nav-menu--list.dark li {
-  background-color: #0761d1ff;
+  background-color: #043e86;
+  color: #fff;
 }
 
 .nav-menu--list.dark li:hover,
 .btn.dark:hover,
 .btn.dark:active {
   background-color: #339af0;
+  color: #000;
 }
 
 .section-header.dark,
@@ -95,13 +97,119 @@ rgba(0, 0, 0, 0.2); */
   box-shadow: 0 0 36px 1px rgba(255, 255, 255, 0.219);
 }
 
-.section-header.dark,
 .section-header.dark .heading-primary,
 .todo-input.dark,
 .todo-input.dark .date,
 .todo-input.dark .input-header,
-.todo-input.dark .btn--todo,
 .nav-menu--list.dark li,
-.side-menu.dark .user-name {
-  color: #fff;
+.side-menu.dark .user-name,
+.nav-menu--list.dark a:link,
+.nav-menu--list.dark a:visited {
+  color: #ffffff;
+}
+
+/* ------------------------------------------------- */
+/* Light THEME */
+
+/* ---  COLORS
+
+- Primary :#d0ebff;
+- Tints :#f6fbff;
+#2a2f33; (Font color)
+#850000; (error border)
+#004700; (success border)
+#e8f5ff; (even bg color)
+#d5edff;(odd bg color)
+- Shades :
+- Accents :
+- Greys :
+
+
+--- 05 SHADOWS
+rgba(0, 0, 0, 0.2); */
+.section-login .light {
+  background-color: #d0ebff;
+}
+
+.login .light {
+  background-color: #f6fbff;
+  box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.2);
+}
+
+.icon--error .light {
+  color: #850000;
+}
+
+.icon--success.light {
+  color: #004700;
+}
+
+.error-message .light {
+  color: #850000;
+}
+
+.success input .light {
+  border: 2px solid #004700;
+}
+
+.failure input .light {
+  border: 2px solid #850000;
+}
+
+/* ************************* */
+/* Dashboard section  */
+/* ************************* */
+
+.section-dashboard.light {
+  background-color: #d0ebff;
+}
+
+.todo-display.light,
+.todo-input.light,
+.side-menu.light,
+.section-header.light,
+.section-footer.light {
+  background-color: #f6fbff;
+}
+
+.tasks.light li:nth-child(even) {
+  background-color: #e8f5ff;
+}
+
+.tasks.light li:nth-child(odd) {
+  background-color: #d5edff;
+}
+
+/* .icon--trash.light {
+  color: #850000;
+} */
+
+/* NAVIGATION  */
+.btn.light,
+.nav-menu--list.light li {
+  background-color: #a5d8ff;
+  color: #202427;
+}
+
+.nav-menu--list.light li:hover,
+.btn.light:hover,
+.btn.light:active {
+  background-color: #75bbf5;
+  color: #000000;
+}
+
+.section-header.light,
+.section-footer.light {
+  box-shadow: 0 0 36px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-header.light .heading-primary,
+.todo-input.light,
+.todo-input.light .date,
+.todo-input.light .input-header,
+.nav-menu--list.light li,
+.side-menu.light .user-name,
+.nav-menu--list.light a:link,
+.nav-menu--list.light a:visited {
+  color: #202427;
 }

@@ -121,6 +121,7 @@ const deleteTask = function (id) {
 switchThemeEl.addEventListener("click", function () {
   document.querySelector(".todo-input--warning").classList.remove("active");
   theme = checkTheme();
+  removeWarning();
   console.log(theme);
   let classNames = {
     htmlEl: "html",

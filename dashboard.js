@@ -3,6 +3,7 @@
 const addBtnEl = document.getElementById("add-task");
 const taskInput = document.getElementById("task-input-text");
 const switchThemeEl = document.querySelector(".nav-menu--theme");
+const resetBtnEl = document.querySelector(".nav-menu--reset");
 let htmlEl = document.querySelector("html");
 
 // Other variables declaration
@@ -10,7 +11,27 @@ let li = document.createElement("li");
 const tasks = document.getElementById("tasks");
 let taskArray = [];
 let theme;
+let warningFlag;
 checkTheme();
+
+// document
+//   .querySelector("html:not(.btn--todo)")
+//   .addEventListener("click", function () {
+//     // warningFlag = true;
+//     // console.log(warningFlag);
+//     removeWarning();
+//     // if (warningFlag == true) {
+//     // }
+//   });
+
+// Reset (remove array elements, clear HTML task list)
+resetBtnEl.addEventListener("click", function () {
+  if (taskArray.length != 0) {
+    taskArray.length = 0;
+    document.querySelectorAll(".tasks--added-task").forEach((e) => e.remove());
+    return taskArray;
+  }
+});
 
 // Function to check page theme
 function checkTheme() {
@@ -30,11 +51,24 @@ const TaskStatus = {
 
 function displayWarning() {
   document.querySelector(".todo-input--warning").classList.add("active");
+  theme = checkTheme();
+  if (theme == true) {
+    document.querySelector(".input-text.light").style.border =
+      "2px solid #850000";
+  } else if (theme == false) {
+    document.querySelector(".input-text.dark").style.border =
+      "2px solid #ed4747";
+  }
+  warningFlag = true;
+  console.log(warningFlag);
+  return warningFlag;
 }
 
 function removeWarning() {
   document.querySelector(".todo-input--warning").classList.remove("active");
   document.querySelector(".input-text").style.border = "none";
+  warningFlag = false;
+  return warningFlag;
 }
 
 // Task List function
@@ -42,14 +76,6 @@ addBtnEl.addEventListener("click", function () {
   theme = checkTheme();
   if (taskInput.value == "") {
     displayWarning();
-    // document.querySelector(".input-text").style.border = "2px solid #850000";
-    // if (theme === true) {
-    //   document.querySelector(".todo-input--warning").classList.add("active");
-    // } else if (theme === false) {
-    //   document
-    //     .querySelector(".todo-input--warning.dark")
-    //     .classList.add("active");
-    // }
   } else {
     // taskArray.push(taskInput.value);
     removeWarning();
@@ -75,9 +101,9 @@ function renderList(item) {
   theme = checkTheme();
   for (let i = 0; i < item.length; i++) {
     if (theme === true) {
-      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status">Status</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
     } else if (theme === false) {
-      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status">Status</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
     }
   }
   return theme, items;
@@ -135,7 +161,7 @@ switchThemeEl.addEventListener("click", function () {
     navMenuListLiEl: ".nav-menu--list",
     tasksEl: ".tasks",
     taskListHeaderEl: ".task-list--header",
-    ionIconTask: ".tasks--added-task",
+    // ionIconTask: ".tasks--added-task",
     inputWarning: ".todo-input--warning",
     inputTextWarning: ".input-text",
   };

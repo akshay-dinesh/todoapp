@@ -172,13 +172,13 @@
 
 .tasks li {
   list-style: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 500;
   padding: 1.2rem;
   border-radius: 11px;
   display: flex;
   cursor: pointer;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -196,12 +196,24 @@
   user-select: none;
 }
 
-.tasks--added-task p {
+/* .tasks--added-task p {
   width: 100%;
-}
+} */
 
 .tasks--added-task * {
   padding: 0 1.2rem;
+}
+
+.task-list--header--element--taskname,
+.tasks--added-task--description {
+  margin-right: auto;
+}
+
+.tasks--added-task--status,
+.tasks--added-task--date,
+.task-list--header--element--status,
+.task-list--header--element--date {
+  width: 15%;
 }
 
 .strike-through {

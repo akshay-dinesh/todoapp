@@ -165,28 +165,26 @@ const strikeThrough = function (id) {
   const parent = taskId.parentElement;
   const child = parent.children[2];
   let tempId = id.replace("task", "");
-  console.log(tempId);
   if (strike == true) {
     taskId.classList.remove("strike-through");
     child.textContent = TaskStatus.TODO;
-    const strikedTask = (taskArray = taskArray.filter((obj) => {
-      return (taskArray[tempId].status = TaskStatus.TODO);
-    }));
+    const strikedTask = taskArray.forEach((element) => {
+      if (element.id == tempId) {
+        element.status = TaskStatus.TODO;
+      }
+    });
     strike = false;
     return strike, strikedTask;
   } else if (strike == false) {
     taskId.classList.add("strike-through");
     child.textContent = TaskStatus.DONE;
-    console.log(taskArray);
-
-    // const strikedTask = (taskArray = taskArray.filter((obj) => {
-    //   if (taskArray["id"] == tempId) {
-    //     return (taskArray["status"] = TaskStatus.DONE);
-    //   }
-    // }));
-    // console.log(strikedTask);
+    const strikedTask = taskArray.forEach((element) => {
+      if (element.id == tempId) {
+        element.status = TaskStatus.DONE;
+      }
+    });
     strike = true;
-    return strike;
+    return strike, strikedTask;
   }
   console.log(taskArray);
 };

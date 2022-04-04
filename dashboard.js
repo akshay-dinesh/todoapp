@@ -81,7 +81,7 @@ addBtnEl.addEventListener("click", function () {
     // taskArray.push(taskInput.value);
     removeWarning();
     taskArray.push({
-      id: taskArray.length + 1,
+      id: uniqueId(),
       value: taskInput.value,
       status: TaskStatus.TODO,
       createdDate: dateNow(),
@@ -97,14 +97,51 @@ function addLiFunction(item) {
   return renderList(item);
 }
 
+// function renderList(item) {
+//   let items = "";
+//   theme = checkTheme();
+//   for (let i = 0; i < item.length; i++) {
+//     if (theme === true) {
+//       items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+//     } else if (theme === false) {
+//       items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+//     }
+//   }
+//   return theme, items;
+// }
+
+function uniqueId() {
+  // Math.random should be unique because of its seeding algorithm.
+  // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+  // after the decimal.
+  return "_" + Math.random().toString(36).substr(2, 9);
+}
+
+console.log(uniqueId());
+
+// function renderList(item) {
+//   let items = "";
+//   theme = checkTheme();
+
+//   for (let i = 0; i < item.length; i++) {
+//     if (theme === true) {
+//       items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+//     } else if (theme === false) {
+//       items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+//     }
+//   }
+//   return theme, items;
+// }
 function renderList(item) {
+  console.log(item);
   let items = "";
   theme = checkTheme();
+
   for (let i = 0; i < item.length; i++) {
     if (theme === true) {
-      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${item[i].id}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="status-task${item[i].id}">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${item[i].id}" class="icon--trash" onmousedown="deleteTask(task${item[i].id})" name="trash-outline"></ion-icon></li>`;
     } else if (theme === false) {
-      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${item[i].id}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="status-task${item[i].id}">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${item[i].id}" class="icon--trash" onmousedown="deleteTask(task${item[i].id})" name="trash-outline"></ion-icon></li>`;
     }
   }
   return theme, items;
@@ -123,34 +160,62 @@ document.getElementById("date").innerHTML = `Today's date : ${dateNow()}`;
 
 // Strike out task
 const strikeThrough = function (id) {
+  console.log(id);
   const taskId = document.getElementById(id);
   const parent = taskId.parentElement;
   const child = parent.children[2];
+  let tempId = id.replace("task", "");
+  console.log(tempId);
   if (strike == true) {
     taskId.classList.remove("strike-through");
     child.textContent = TaskStatus.TODO;
+    const strikedTask = (taskArray = taskArray.filter((obj) => {
+      return (taskArray[tempId].status = TaskStatus.TODO);
+    }));
     strike = false;
-    return strike;
+    return strike, strikedTask;
   } else if (strike == false) {
     taskId.classList.add("strike-through");
     child.textContent = TaskStatus.DONE;
+    console.log(taskArray);
+
+    // const strikedTask = (taskArray = taskArray.filter((obj) => {
+    //   if (taskArray["id"] == tempId) {
+    //     return (taskArray["status"] = TaskStatus.DONE);
+    //   }
+    // }));
+    // console.log(strikedTask);
     strike = true;
     return strike;
   }
+  console.log(taskArray);
 };
 
 // Delete task (trash can div)
+// const deleteTask = function (id) {
+//   console.log(id);
+//   const deletedArray = (taskArray = taskArray.filter((obj) => {
+//     console.log(obj);
+//     return obj.id !== id;
+//   }));
+//   renderList(taskArray);
+//   tasks.innerHTML = addLiFunction(taskArray);
+//   return deletedArray;
+//   // taskArray.splice(id - 1, id);
+//   console.log("after delete-->", taskArray);
+// };
 const deleteTask = function (id) {
   console.log(id);
+  let tempId = id.id.replace("task", "");
+  console.log(tempId);
+
   const deletedArray = (taskArray = taskArray.filter((obj) => {
-    console.log(obj);
-    return obj.id !== id;
+    return obj.id !== tempId;
   }));
+  // console.log(deletedArray);
   renderList(taskArray);
   tasks.innerHTML = addLiFunction(taskArray);
   return deletedArray;
-  // taskArray.splice(id - 1, id);
-  console.log("after delete-->", taskArray);
 };
 
 // Switch theme

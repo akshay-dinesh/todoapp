@@ -98,8 +98,8 @@ rgba(0, 0, 0, 0.2); */
   color: #000;
 }
 
-/* .section-header.dark,
-.section-footer.dark, */
+.section-header.dark,
+.section-footer.dark,
 .side-menu.light,
 .todo-input.light,
 .todo-display.light {
@@ -241,10 +241,6 @@ rgba(0, 0, 0, 0.2); */
 .nav-menu--list.light a:visited {
   color: #202427;
 }
-
-/* .input-text.light {
-  transition: none;
-} */
 
 .todo-input--warning.light.active {
   transition: none;

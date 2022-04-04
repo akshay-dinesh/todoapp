@@ -11,7 +11,9 @@ let li = document.createElement("li");
 const tasks = document.getElementById("tasks");
 let taskArray = [];
 let theme;
+let strike = false;
 let warningFlag;
+
 checkTheme();
 
 // document
@@ -44,9 +46,8 @@ function checkTheme() {
 }
 
 const TaskStatus = {
-  TODO: "TODO",
-  INPROGRESS: "INPROGRESS",
-  DONE: "DONE",
+  TODO: "Not Completed",
+  DONE: "Completed",
 };
 
 function displayWarning() {
@@ -101,9 +102,9 @@ function renderList(item) {
   theme = checkTheme();
   for (let i = 0; i < item.length; i++) {
     if (theme === true) {
-      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status">Status</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
     } else if (theme === false) {
-      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status">Status</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
     }
   }
   return theme, items;
@@ -115,23 +116,32 @@ function dateNow() {
   const date = currentDate.getDate();
   const month = currentDate.getMonth() + 1;
   const year = currentDate.getFullYear();
-  const dateString = `${date}/${month}/${year}`;
+  const dateString = `${date} / ${month} / ${year}`;
   return dateString;
 }
 document.getElementById("date").innerHTML = `Today's date : ${dateNow()}`;
 
 // Strike out task
 const strikeThrough = function (id) {
-  const itemId = document.getElementById(id);
-  itemId.classList.toggle("strike-through");
+  const taskId = document.getElementById(id);
+  const parent = taskId.parentElement;
+  const child = parent.children[2];
+  if (strike == true) {
+    taskId.classList.remove("strike-through");
+    child.textContent = TaskStatus.TODO;
+    strike = false;
+    return strike;
+  } else if (strike == false) {
+    taskId.classList.add("strike-through");
+    child.textContent = TaskStatus.DONE;
+    strike = true;
+    return strike;
+  }
 };
 
 // Delete task (trash can div)
 const deleteTask = function (id) {
   console.log(id);
-  // const iconId = document.getElementById(id);
-  // const parent = iconId.parentElement;
-  // parent.remove();
   const deletedArray = (taskArray = taskArray.filter((obj) => {
     console.log(obj);
     return obj.id !== id;
@@ -148,7 +158,6 @@ switchThemeEl.addEventListener("click", function () {
   document.querySelector(".todo-input--warning").classList.remove("active");
   theme = checkTheme();
   removeWarning();
-  console.log(theme);
   let classNames = {
     htmlEl: "html",
     sectionDashboardEl: ".section-dashboard",

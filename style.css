@@ -130,7 +130,7 @@
 
 .date {
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .input-text {
@@ -214,6 +214,10 @@
 .task-list--header--element--status,
 .task-list--header--element--date {
   width: 15%;
+}
+
+.tasks--added-task--date {
+  text-align: center;
 }
 
 .strike-through {

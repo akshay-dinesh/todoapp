@@ -78,7 +78,6 @@ addBtnEl.addEventListener("click", function () {
   if (taskInput.value == "") {
     displayWarning();
   } else {
-    // taskArray.push(taskInput.value);
     removeWarning();
     taskArray.push({
       id: uniqueId(),
@@ -86,16 +85,30 @@ addBtnEl.addEventListener("click", function () {
       status: TaskStatus.TODO,
       createdDate: dateNow(),
     });
-    tasks.innerHTML = addLiFunction(taskArray);
+    // tasks.innerHTML = addLiFunction(taskArray);
+    tasks.innerHTML = renderList(taskArray);
     taskInput.value = "";
-    // console.log(taskArray);
   }
 });
 
 // List function (Write data to html)
-function addLiFunction(item) {
-  return renderList(item);
-}
+// function addLiFunction(item) {
+//   return renderList(item);
+// }
+
+const deleteTask = function (id) {
+  console.log(id);
+  let tempId = id.id.replace("task", "");
+  console.log(tempId);
+
+  const deletedArray = (taskArray = taskArray.filter((obj) => {
+    return obj.id !== tempId;
+  }));
+  // console.log(deletedArray);
+  renderList(taskArray);
+  tasks.innerHTML = renderList(taskArray);
+  return deletedArray;
+};
 
 // function renderList(item) {
 //   let items = "";
@@ -110,14 +123,13 @@ function addLiFunction(item) {
 //   return theme, items;
 // }
 
+// Function to generate a unique ID
 function uniqueId() {
   // Math.random should be unique because of its seeding algorithm.
   // Convert it to base 36 (numbers + letters), and grab the first 9 characters
   // after the decimal.
   return "_" + Math.random().toString(36).substr(2, 9);
 }
-
-console.log(uniqueId());
 
 // function renderList(item) {
 //   let items = "";
@@ -133,7 +145,6 @@ console.log(uniqueId());
 //   return theme, items;
 // }
 function renderList(item) {
-  console.log(item);
   let items = "";
   theme = checkTheme();
 
@@ -144,7 +155,31 @@ function renderList(item) {
       items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${item[i].id}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="status-task${item[i].id}">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${item[i].id}" class="icon--trash" onmousedown="deleteTask(task${item[i].id})" name="trash-outline"></ion-icon></li>`;
     }
   }
+  strikeThroughHtmlEl(taskArray);
   return theme, items;
+}
+
+// Function to render strike through
+function strikeThroughHtmlEl() {
+  taskArray.forEach((element) => {
+    const temp = element.id;
+    const taskId = document.getElementById(temp);
+    // const parentEl = taskId.parentElement;
+    // const childEl = parentEl.children[2];
+    // console.log(`task${element.id}`);
+    console.log(taskId);
+    // console.log(parentEl);
+    // console.log(childEl);
+    if (element.status == TaskStatus.DONE) {
+      document
+        .getElementById(`task${element.id}`)
+        .classList.add("strike-through");
+    } else if (taskArray.status == TaskStatus.TODO) {
+      document
+        .getElementById(`task${element.id}`)
+        .classList.remove("strike-through");
+    }
+  });
 }
 
 // Date function
@@ -160,60 +195,34 @@ document.getElementById("date").innerHTML = `Today's date : ${dateNow()}`;
 
 // Strike out task
 const strikeThrough = function (id) {
-  console.log(id);
-  const taskId = document.getElementById(id);
-  const parent = taskId.parentElement;
-  const child = parent.children[2];
   let tempId = id.replace("task", "");
-  if (strike == true) {
-    taskId.classList.remove("strike-through");
-    child.textContent = TaskStatus.TODO;
-    const strikedTask = taskArray.forEach((element) => {
-      if (element.id == tempId) {
+  // console.log(childEl, taskId);
+
+  // if (strike == true) {
+  //   taskId.classList.remove("strike-through");
+  //   childEl.textContent = TaskStatus.TODO;
+  //   return (strike = false);
+  // } else if (strike == false) {
+  //   taskId.classList.add("strike-through");
+  //   childEl.textContent = TaskStatus.DONE;
+  //   return (strike = true);
+  // }
+
+  const strikedTask = taskArray.forEach((element) => {
+    if (element.id == tempId) {
+      if (element.status == TaskStatus.DONE) {
+        // taskId.classList.remove("strike-through");
+        // childEl.textContent = TaskStatus.TODO;
         element.status = TaskStatus.TODO;
-      }
-    });
-    strike = false;
-    return strike, strikedTask;
-  } else if (strike == false) {
-    taskId.classList.add("strike-through");
-    child.textContent = TaskStatus.DONE;
-    const strikedTask = taskArray.forEach((element) => {
-      if (element.id == tempId) {
+      } else if (element.status == TaskStatus.TODO) {
+        // taskId.classList.add("strike-through");
+        // childEl.textContent = TaskStatus.DONE;
         element.status = TaskStatus.DONE;
       }
-    });
-    strike = true;
-    return strike, strikedTask;
-  }
-  console.log(taskArray);
-};
-
-// Delete task (trash can div)
-// const deleteTask = function (id) {
-//   console.log(id);
-//   const deletedArray = (taskArray = taskArray.filter((obj) => {
-//     console.log(obj);
-//     return obj.id !== id;
-//   }));
-//   renderList(taskArray);
-//   tasks.innerHTML = addLiFunction(taskArray);
-//   return deletedArray;
-//   // taskArray.splice(id - 1, id);
-//   console.log("after delete-->", taskArray);
-// };
-const deleteTask = function (id) {
-  console.log(id);
-  let tempId = id.id.replace("task", "");
-  console.log(tempId);
-
-  const deletedArray = (taskArray = taskArray.filter((obj) => {
-    return obj.id !== tempId;
-  }));
-  // console.log(deletedArray);
-  renderList(taskArray);
-  tasks.innerHTML = addLiFunction(taskArray);
-  return deletedArray;
+    }
+  });
+  tasks.innerHTML = renderList(taskArray);
+  return strikedTask;
 };
 
 // Switch theme
@@ -233,7 +242,6 @@ switchThemeEl.addEventListener("click", function () {
     navMenuListLiEl: ".nav-menu--list",
     tasksEl: ".tasks",
     taskListHeaderEl: ".task-list--header",
-    // ionIconTask: ".tasks--added-task",
     inputWarning: ".todo-input--warning",
     inputTextWarning: ".input-text",
   };
@@ -256,7 +264,6 @@ switchThemeEl.addEventListener("click", function () {
     }
   }
 });
-
 // Dynamic username // Check if key exists
 // const userEl = document.querySelector("#user");
 // const params = new URLSearchParams(window.location.search);

@@ -5,6 +5,7 @@ const taskInput = document.getElementById("task-input-text");
 const switchThemeEl = document.querySelector(".nav-menu--theme");
 const resetBtnEl = document.querySelector(".nav-menu--reset");
 let htmlEl = document.querySelector("html");
+document.getElementById("date").innerHTML = `Today's date : ${dateNow()}`;
 
 // Other variables declaration
 let li = document.createElement("li");
@@ -28,6 +29,7 @@ checkTheme();
 
 // Reset (remove array elements, clear HTML task list)
 resetBtnEl.addEventListener("click", function () {
+  removeWarning();
   if (taskArray.length != 0) {
     taskArray.length = 0;
     document.querySelectorAll(".tasks--added-task").forEach((e) => e.remove());
@@ -45,6 +47,7 @@ function checkTheme() {
   return theme;
 }
 
+// ENUM
 const TaskStatus = {
   TODO: "Not Completed",
   DONE: "Completed",
@@ -91,11 +94,6 @@ addBtnEl.addEventListener("click", function () {
   }
 });
 
-// List function (Write data to html)
-// function addLiFunction(item) {
-//   return renderList(item);
-// }
-
 const deleteTask = function (id) {
   console.log(id);
   let tempId = id.id.replace("task", "");
@@ -110,19 +108,6 @@ const deleteTask = function (id) {
   return deletedArray;
 };
 
-// function renderList(item) {
-//   let items = "";
-//   theme = checkTheme();
-//   for (let i = 0; i < item.length; i++) {
-//     if (theme === true) {
-//       items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
-//     } else if (theme === false) {
-//       items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
-//     }
-//   }
-//   return theme, items;
-// }
-
 // Function to generate a unique ID
 function uniqueId() {
   // Math.random should be unique because of its seeding algorithm.
@@ -131,55 +116,52 @@ function uniqueId() {
   return "_" + Math.random().toString(36).substr(2, 9);
 }
 
-// function renderList(item) {
-//   let items = "";
-//   theme = checkTheme();
-
-//   for (let i = 0; i < item.length; i++) {
-//     if (theme === true) {
-//       items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
-//     } else if (theme === false) {
-//       items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${i}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="task${i}status">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${i}" class="icon--trash" onmousedown="deleteTask(${item[i].id})" name="trash-outline"></ion-icon></li>`;
-//     }
-//   }
-//   return theme, items;
-// }
 function renderList(item) {
   let items = "";
   theme = checkTheme();
 
+  const strike = function renderHtmlStrike(item1) {
+    let temp1;
+    if (item1 == TaskStatus.DONE) {
+      temp1 = "strike-through";
+    } else if (item1 == TaskStatus.TODO) {
+      temp1 = "";
+    }
+    return temp1;
+  };
+
   for (let i = 0; i < item.length; i++) {
     if (theme === true) {
-      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${item[i].id}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status" id="status-task${item[i].id}">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${item[i].id}" class="icon--trash" onmousedown="deleteTask(task${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description ${strike(
+        item[i].status
+      )}" id="task${item[i].id}" onmousedown="strikeThrough(this.id)" >${
+        item[i].value
+      }</p><p class="tasks--added-task--status" id="status-task${item[i].id}">${
+        item[i].status
+      }</p><p class="tasks--added-task--date">${
+        item[i].createdDate
+      }</p><ion-icon id="trash${
+        item[i].id
+      }" class="icon--trash" onmousedown="deleteTask(task${
+        item[i].id
+      })" name="trash-outline"></ion-icon></li>`;
     } else if (theme === false) {
-      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description" id="task${item[i].id}" onmousedown="strikeThrough(this.id)" >${item[i].value}</p><p class="tasks--added-task--status id="status-task${item[i].id}">${item[i].status}</p><p class="tasks--added-task--date">${item[i].createdDate}</p><ion-icon id="trash${item[i].id}" class="icon--trash" onmousedown="deleteTask(task${item[i].id})" name="trash-outline"></ion-icon></li>`;
+      items += `<li class="tasks--added-task dark"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description ${strike(
+        item[i].status
+      )}" id="task${item[i].id}" onmousedown="strikeThrough(this.id)" >${
+        item[i].value
+      }</p><p class="tasks--added-task--status id="status-task${item[i].id}">${
+        item[i].status
+      }</p><p class="tasks--added-task--date">${
+        item[i].createdDate
+      }</p><ion-icon id="trash${
+        item[i].id
+      }" class="icon--trash" onmousedown="deleteTask(task${
+        item[i].id
+      })" name="trash-outline"></ion-icon></li>`;
     }
   }
-  strikeThroughHtmlEl(taskArray);
   return theme, items;
-}
-
-// Function to render strike through
-function strikeThroughHtmlEl() {
-  taskArray.forEach((element) => {
-    const temp = element.id;
-    const taskId = document.getElementById(temp);
-    // const parentEl = taskId.parentElement;
-    // const childEl = parentEl.children[2];
-    // console.log(`task${element.id}`);
-    console.log(taskId);
-    // console.log(parentEl);
-    // console.log(childEl);
-    if (element.status == TaskStatus.DONE) {
-      document
-        .getElementById(`task${element.id}`)
-        .classList.add("strike-through");
-    } else if (taskArray.status == TaskStatus.TODO) {
-      document
-        .getElementById(`task${element.id}`)
-        .classList.remove("strike-through");
-    }
-  });
 }
 
 // Date function
@@ -191,32 +173,16 @@ function dateNow() {
   const dateString = `${date} / ${month} / ${year}`;
   return dateString;
 }
-document.getElementById("date").innerHTML = `Today's date : ${dateNow()}`;
 
 // Strike out task
 const strikeThrough = function (id) {
   let tempId = id.replace("task", "");
-  // console.log(childEl, taskId);
-
-  // if (strike == true) {
-  //   taskId.classList.remove("strike-through");
-  //   childEl.textContent = TaskStatus.TODO;
-  //   return (strike = false);
-  // } else if (strike == false) {
-  //   taskId.classList.add("strike-through");
-  //   childEl.textContent = TaskStatus.DONE;
-  //   return (strike = true);
-  // }
 
   const strikedTask = taskArray.forEach((element) => {
     if (element.id == tempId) {
       if (element.status == TaskStatus.DONE) {
-        // taskId.classList.remove("strike-through");
-        // childEl.textContent = TaskStatus.TODO;
         element.status = TaskStatus.TODO;
       } else if (element.status == TaskStatus.TODO) {
-        // taskId.classList.add("strike-through");
-        // childEl.textContent = TaskStatus.DONE;
         element.status = TaskStatus.DONE;
       }
     }

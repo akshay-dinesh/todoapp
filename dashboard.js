@@ -5,7 +5,7 @@ const taskInput = document.getElementById("task-input-text");
 const switchThemeEl = document.querySelector(".nav-menu--theme");
 const resetBtnEl = document.querySelector(".nav-menu--reset");
 let htmlEl = document.querySelector("html");
-document.getElementById("date").innerHTML = `Today's date : ${dateNow()}`;
+document.getElementById("date").innerHTML = `Date : ${dateNow()}`;
 
 // Other variables declaration
 let li = document.createElement("li");

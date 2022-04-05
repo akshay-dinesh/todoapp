@@ -1,222 +1,69 @@
 /* 1rem = 1em = 16px */
 /**********************************/
-/* BELOW 1689px (Large desktops) */
-/* 1689  / 16 (default font size) = 105em  */
+/* BELOW 1344px (Larger desktops) */
+/* 1618 (container size) / 16 (default
+font size = 102em  */
 /**********************************/
-@media (max-width: 106em) {
+@media (max-width: 102em) {
   html {
-    /* 9px / 16px = 0.5625 (56.25%) [default font-size: 10] */
-    font-size: 55.5%;
+    /* 9px / 16px = (56.25%) [default font-size: 10] */
+    font-size: 59.37%;
   }
 
   .user {
-    margin-bottom: 6.4rem;
+    margin-bottom: 6rem;
+  }
+}
+/**********************************/
+/* BELOW 1531px (Larg desktops) */
+/* 1531 (container size) / 16 (default
+font size = 96em  */
+/**********************************/
+@media (max-width: 96em) {
+  .user {
+    margin-bottom: 6rem;
   }
 
   .user-name {
     font-size: 2.6rem;
-    margin-bottom: 2rem;
   }
 
   .user-img {
-    height: 20rem;
+    height: 18rem;
   }
 }
 
 /**********************************/
-/* BELOW 1489px (desktops) */
-/* 1504  / 16 (default font size = 94em  */
+/* BELOW 1486px (Smaller desktops) */
+/* 1486 (container size) / 16 (default
+font size = 93em  */
 /**********************************/
-/* 8px / 16px = 0.5 (50%) [default font-size: 10] */
-@media (max-width: 94em) {
+@media (max-width: 93em) {
   html {
+    /* 8px / 16px = (50%) [default font-size: 10] */
     font-size: 50%;
   }
 
   .user {
-    margin-bottom: 7.4rem;
-    gap: 3.4rem;
+    margin-bottom: 10.4rem;
   }
 
   .user-name {
     font-size: 3rem;
+    margin-bottom: 1rem;
   }
 
   .user-img {
     height: 22rem;
   }
-}
-
-/**********************************/
-/* BELOW 1350px (Smaller desktops) */
-/* 1350 (1350 - container size) / 16 (default
-font size = 80em  */
-/**********************************/
-
-@media (max-width: 85em) {
-  html {
-    font-size: 47.5%;
-  }
-
-  .user {
-    align-items: center;
-    margin-bottom: 0;
-    flex-direction: row-reverse;
-    justify-content: center;
-  }
-
-  .user-name,
-  .input-header {
-    font-size: 3rem;
-  }
-
-  .date {
-    font-size: 2.4rem;
-  }
-
-  .user-img {
-    height: 9rem;
-  }
-
-  .nav-menu {
-    display: block;
-  }
 
   .nav-menu--list {
-    gap: 3.4rem;
-    flex-direction: row;
-  }
-
-  .grid--dashboard {
-    grid-template-columns: 1fr;
-    grid-template-rows: 100px 150px 450px;
-  }
-
-  .side-menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    grid-row: auto;
-  }
-}
-
-/* DATE */
-
-@media (max-width: 81em) {
-  .date {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 76em) {
-  .date {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 71em) {
-  .date {
-    font-size: 1.9rem;
+    gap: 3rem;
   }
 }
 
 /**********************************/
-/* BELOW 1045px (Landscape tablets) */
-/* 1045 (1350 - container size) / 16 (default
-font size = 66em  */
+/* BELOW 1402px (Landscape Tablet) */
+/* 1402 (container size) / 16 (default
+font size = 88em  */
 /**********************************/
-@media (max-width: 67em) {
-  .date {
-    font-size: 1.8rem;
-  }
-
-  html {
-    font-size: 46.5%;
-  }
-
-  .grid--dashboard {
-    grid-template-rows: 90px 140px 400px;
-  }
-
-  .task-list--header--element--status {
-    justify-content: center;
-  }
-
-  .task-list--header--element--date,
-  .tasks--added-task--status {
-    text-align: center;
-  }
-}
-
-/**********************************/
-/* BELOW 944px (Tablets) */
-/* 944 (1350 - container size) / 16 (default
-font size = 59em  */
-/**********************************/
-@media (max-width: 59em) {
-  html {
-    font-size: 45.5%;
-  }
-
-  .grid--dashboard {
-    grid-template-rows: 80px 130px 390px;
-  }
-
-  .date {
-    font-size: 1.6rem;
-  }
-}
-
-/**********************************/
-/* BELOW 704px (Tablets) */
-/* 704 (1350 - container size) / 16 (default
-font size = 44em  */
-/**********************************/
-@media (max-width: 44em) {
-  html {
-    font-size: 39.5%;
-  }
-
-  .grid--dashboard {
-    grid-gap: 2rem;
-  }
-
-  .nav-menu--list {
-    gap: 1.2rem;
-  }
-
-  .user-name {
-    font-size: 1.8rem;
-  }
-
-  .date {
-    font-size: 2.4rem;
-  }
-
-  .input-header {
-    font-size: 3.2rem;
-  }
-}
-
-/**********************************/
-/* BELOW 544px (phones) */
-/* 544 (1350 - container size) / 16 (default
-font size = 34em  */
-/**********************************/
-@media (max-width: 34em) {
-  html {
-    font-size: 32.5%;
-  }
-
-  .grid--dashboard {
-    grid-template-rows: 70px 100px 380px;
-  }
-
-  .side-menu {
-    gap: 1.2rem;
-  }
-
-  .user-name {
-    font-size: 1.6rem;
-  }
-}

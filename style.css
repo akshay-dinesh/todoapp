@@ -81,7 +81,7 @@
 /* Dashboard section  */
 /* ************************* */
 .section-dashboard {
-  min-height: 80vh;
+  height: 80vh;
   padding: 6.4rem 9.6rem 9.6rem 9.6rem;
 }
 
@@ -95,7 +95,7 @@
 .todo-input {
   grid-gap: 1.6rem;
   grid-template-columns: 4fr 1fr;
-  padding: 1.6rem 2.4rem 2.4rem 1.6rem;
+  padding: 1.6rem;
   border-radius: 11px;
   position: relative;
 }
@@ -136,9 +136,10 @@
 }
 
 .task-list--header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 5% 50% 20% 20% 5%;
   align-items: center;
+  /* justify-items: center; */
   padding: 1.2rem;
   margin-bottom: 1.2rem;
 }
@@ -147,8 +148,6 @@
   font-size: 2.4rem;
   font-weight: 500;
   text-transform: capitalize;
-  display: flex;
-  align-items: center;
   padding: 0 1.2rem;
 }
 
@@ -164,9 +163,9 @@
   font-weight: 500;
   padding: 1.2rem;
   border-radius: 11px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 5% 50% 20% 20% 5%;
   cursor: pointer;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -176,36 +175,12 @@
   width: 2.4rem;
 }
 
-/* .icon--trash {
-  margin-left: auto;
-} */
-
 .no-select {
   user-select: none;
 }
 
-/* .tasks--added-task p {
-  width: 100%;
-} */
-
 .tasks--added-task * {
   padding: 0 1.2rem;
-}
-
-.task-list--header--element--taskname,
-.tasks--added-task--description {
-  margin-right: auto;
-}
-
-.tasks--added-task--status,
-.tasks--added-task--date,
-.task-list--header--element--status,
-.task-list--header--element--date {
-  width: 15%;
-}
-
-.tasks--added-task--date {
-  text-align: center;
 }
 
 .strike-through {
@@ -233,9 +208,7 @@
 }
 
 .user-name strong {
-  font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 2.4rem;
 }
 
 .user-img {

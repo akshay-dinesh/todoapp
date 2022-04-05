@@ -5,12 +5,10 @@
 const formEl = document.getElementById("login-form");
 const uNameEl = document.getElementById("username");
 const pWordEl = document.getElementById("password");
-// const submitBtnEl = document.getElementById("submit");
 const themeBtnEl = document.querySelector(".icon--theme");
 let htmlEl = document.querySelector("html");
 
 let theme;
-
 checkTheme();
 
 function checkTheme() {
@@ -53,12 +51,14 @@ const validateUser = function () {
   // Username validation
   if (!(uNameEl.value.trim() == "akshay")) {
     displayError(uNameEl, "Wrong username");
+    uNameEl.value = "";
   } else {
     displaySuccess(uNameEl);
   }
   // Password validation
   if (!(pWordEl.value.trim() == "123")) {
     displayError(pWordEl, "Wrong password");
+    pWordEl.value = "";
   } else {
     displaySuccess(pWordEl);
   }
@@ -120,8 +120,10 @@ themeBtnEl.addEventListener("click", function () {
     input2El: ".input2",
     errorMsg1El: ".error1",
     errorMsg2El: ".error2",
-    iconErrorEl: ".icon--error",
-    iconSUccessEl: ".icon--success",
+    iconError1El: ".icon--error1",
+    iconError2El: ".icon--error2",
+    iconSUccess1El: ".icon--success1",
+    iconSUccess2El: ".icon--success2",
   };
 
   const className = Object.keys(classNames);

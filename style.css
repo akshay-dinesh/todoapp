@@ -7,7 +7,6 @@
 }
 
 .login {
-  background-color: #f6fbff;
   padding: 2.4rem 4.8rem 4.8rem 4.8rem;
   border-radius: 11px;
 }
@@ -47,6 +46,7 @@
 
 .login-form-input {
   position: relative;
+  padding-bottom: 10px;
 }
 
 .icon {

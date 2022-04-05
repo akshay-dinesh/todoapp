@@ -18,9 +18,12 @@
 --- 05 SHADOWS
 rgba(0, 0, 0, 0.2); */
 
-.icon--error.dark,
 .error-message.dark {
   color: #ed4747;
+}
+
+.icon--error.dark {
+  color: #870d0d;
 }
 
 .icon--success.dark {
@@ -32,7 +35,7 @@ rgba(0, 0, 0, 0.2); */
 }
 
 .failure.dark input {
-  border: 2px solid #ed4747;
+  border: 2px solid #870d0d;
 }
 
 /* ************************* */
@@ -87,11 +90,11 @@ rgba(0, 0, 0, 0.2); */
 
 .section-header.dark,
 .section-footer.dark,
-.side-menu.light,
-.todo-input.light,
-.todo-display.light,
+.side-menu.dark,
+.todo-input.dark,
+.todo-display.dark,
 .login.dark {
-  box-shadow: 0 0 16px 1px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px 2px rgb(255 255 255 / 20%);
 }
 
 .section-header.dark .heading-primary,

@@ -11,6 +11,16 @@ let htmlEl = document.querySelector("html");
 let theme;
 checkTheme();
 
+const userCredHtml = {
+  CORRECT: "Correct Password!",
+  WRONG: "Wrong Password!",
+};
+
+const userCreds = {
+  username: "akshay",
+  password: "123",
+};
+
 function checkTheme() {
   if (htmlEl.classList.contains("light")) {
     theme = true;
@@ -21,7 +31,7 @@ function checkTheme() {
 }
 
 formEl.addEventListener("submit", (event) => {
-  validateUser();
+  validateUser(userCreds);
   if (isFormValid() == true) {
     formEl.submit();
   } else {
@@ -47,17 +57,17 @@ const localPassword = key;
 console.log(localUsername, localPassword);
 // https://www.youtube.com/watch?v=RxUc6ZWwgfw&ab_channel=dcode
 
-const validateUser = function () {
+const validateUser = function (creds) {
   // Username validation
-  if (!(uNameEl.value.trim() == "akshay")) {
-    displayError(uNameEl, "Wrong username");
+  if (!(uNameEl.value.trim() == creds.username)) {
+    displayError(uNameEl, userCredHtml.CORRECT);
     uNameEl.value = "";
   } else {
     displaySuccess(uNameEl);
   }
   // Password validation
-  if (!(pWordEl.value.trim() == "123")) {
-    displayError(pWordEl, "Wrong password");
+  if (!(pWordEl.value.trim() == creds.password)) {
+    displayError(pWordEl, userCredHtml.WRONG);
     pWordEl.value = "";
   } else {
     displaySuccess(pWordEl);

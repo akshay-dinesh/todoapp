@@ -14,46 +14,49 @@
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="general.css" />
+  <link rel="stylesheet" href="themes.css" />
 
   <script defer src="script.js"></script>
 </head>
 
 <body>
-  <header class="section-header">
+  <header class="section-header light">
     <div class="container">
-      <h1 class="heading-primary">TO-DO APP</h1>
+      <h1 class="heading-primary light">TO-DO APP</h1>
     </div>
   </header>
 
   <main>
-    <div class="section-login">
+    <div class="section-login light">
+      <ion-icon id="test" class="icon icon--theme light" name="contrast-outline"></ion-icon>
       <div class="container container--login">
-        <div class="login">
+        <div class="login light">
           <div class="login-header">
             Sign In
           </div>
-          <form id="login-form" class="login-form" action="dashboard.html" method="GET">
-            <div class="login-form-input">
+          <form id="login-form" class="login-form" action="dashboard.html" method="GET" style="
+          transition: none;">
+            <div class=" login-form-input input1 light">
               <label for="username">Username</label>
               <input name="username" id="username" type="text" placeholder="Enter your username" required />
-              <ion-icon class="icon icon--error" name="alert-circle-outline"></ion-icon>
-              <ion-icon class="icon icon--success" name="checkmark-circle-outline"></ion-icon>
-              <p class="error-message">Error message</p>
+              <ion-icon class="icon icon--error light" name="alert-circle-outline"></ion-icon>
+              <ion-icon class="icon icon--success light" name="checkmark-circle-outline"></ion-icon>
+              <p class="error-message error1 light">Error message</p>
             </div>
-            <div class="login-form-input">
+            <div class="login-form-input input2 light">
               <label for="password">Password</label>
               <input name="password" id="password" type="password" placeholder="Enter your password" required />
-              <ion-icon class="icon icon--error" name="alert-circle-outline"></ion-icon>
-              <ion-icon class="icon icon--success" name="checkmark-circle-outline"></ion-icon>
-              <p class="error-message">Error message</p>
+              <ion-icon class="icon icon--error light" name="alert-circle-outline"></ion-icon>
+              <ion-icon class="icon icon--success light" name="checkmark-circle-outline"></ion-icon>
+              <p class="error-message error2 light">Error message</p>
             </div>
-            <button type="submit" id="submit" class="btn">Submit</button>
+            <button type="submit" id="submit" class="btn light">Submit</button>
           </form>
         </div>
       </div>
     </div>
   </main>
-  <footer class="section-footer">
+  <footer class="section-footer light">
 
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

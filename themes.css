@@ -18,43 +18,30 @@
 --- 05 SHADOWS
 rgba(0, 0, 0, 0.2); */
 
-/* ************************* */
-/* Login section */
-/* ************************* */
-.section-login .dark {
-  background-color: #d0ebff;
-}
-
-.login .dark {
-  background-color: #f6fbff;
-  box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.2);
-}
-
-.icon--error .dark {
-  color: #850000;
+.icon--error.dark,
+.error-message.dark {
+  color: #ed4747;
 }
 
 .icon--success.dark {
-  color: #004700;
+  color: #00e000;
 }
 
-.error-message .dark {
-  color: #850000;
+.success.dark input {
+  border: 2px solid #00e000;
 }
 
-.success input .dark {
-  border: 2px solid #004700;
-}
-
-.failure input .dark {
-  border: 2px solid #850000;
+.failure.dark input {
+  border: 2px solid #ed4747;
 }
 
 /* ************************* */
 /* Dashboard section  */
 /* ************************* */
 
-.section-dashboard.dark {
+.section-dashboard.dark,
+.section-login.dark,
+.login.dark {
   background-color: #111111ff;
 }
 
@@ -102,8 +89,9 @@ rgba(0, 0, 0, 0.2); */
 .section-footer.dark,
 .side-menu.light,
 .todo-input.light,
-.todo-display.light {
-  box-shadow: 0 0 36px 1px rgba(255, 255, 255, 0.2);
+.todo-display.light,
+.login.dark {
+  box-shadow: 0 0 16px 1px rgba(255, 255, 255, 0.2);
 }
 
 .section-header.dark .heading-primary,
@@ -114,7 +102,9 @@ rgba(0, 0, 0, 0.2); */
 .side-menu.dark .user-name,
 .nav-menu--list.dark a:link,
 .nav-menu--list.dark a:visited,
-.tasks--added.dark {
+.tasks--added.dark,
+.login.dark,
+.icon--theme.dark {
   color: #ffffff;
 }
 
@@ -147,16 +137,9 @@ rgba(0, 0, 0, 0.2); */
 
 --- 05 SHADOWS
 rgba(0, 0, 0, 0.2); */
-.section-login .light {
-  background-color: #d0ebff;
-}
 
-.login .light {
-  background-color: #f6fbff;
-  box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.2);
-}
-
-.icon--error .light {
+.icon--error.light,
+.error-message.light {
   color: #850000;
 }
 
@@ -164,23 +147,16 @@ rgba(0, 0, 0, 0.2); */
   color: #004700;
 }
 
-.error-message .light {
-  color: #850000;
-}
-
-.success input .light {
+.success.light input {
   border: 2px solid #004700;
 }
 
-.failure input .light {
+.failure.light input {
   border: 2px solid #850000;
 }
 
-/* ************************* */
-/* Dashboard section  */
-/* ************************* */
-
-.section-dashboard.light {
+.section-dashboard.light,
+.section-login.light {
   background-color: #d0ebff;
 }
 
@@ -188,7 +164,8 @@ rgba(0, 0, 0, 0.2); */
 .todo-input.light,
 .side-menu.light,
 .section-header.light,
-.section-footer.light {
+.section-footer.light,
+.login.light {
   background-color: #f6fbff;
 }
 
@@ -223,11 +200,12 @@ rgba(0, 0, 0, 0.2); */
   color: #000000;
 }
 
-/* .section-header.light,
-.section-footer.light, */
+.section-header.light,
+.section-footer.light,
 .side-menu.light,
 .todo-input.light,
-.todo-display.light {
+.todo-display.light,
+.btn--theme {
   box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.2);
 }
 

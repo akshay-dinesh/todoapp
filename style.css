@@ -2,16 +2,14 @@
 /* Login section */
 /* ************************* */
 .section-login {
-  background-color: #d0ebff;
   height: 80vh;
-  padding-top: 12rem;
+  padding: 6.4rem 9.6rem 9.6rem 9.6rem;
 }
 
 .login {
   background-color: #f6fbff;
   padding: 2.4rem 4.8rem 4.8rem 4.8rem;
   border-radius: 11px;
-  box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.2);
 }
 
 .login-header {
@@ -61,12 +59,11 @@
   visibility: hidden;
 }
 
-.icon--error {
-  color: #850000;
-}
-
-.icon--success {
-  color: #004700;
+.icon--theme {
+  visibility: visible;
+  right: 10rem;
+  top: 10rem;
+  cursor: pointer;
 }
 
 .active {
@@ -77,16 +74,7 @@
   font-size: 1.2rem;
   font-weight: 500;
   padding: 0 1rem;
-  color: #850000;
   visibility: hidden;
-}
-
-.success input {
-  border: 2px solid #004700;
-}
-
-.failure input {
-  border: 2px solid #850000;
 }
 
 /* ************************* */

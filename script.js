@@ -5,7 +5,22 @@
 const formEl = document.getElementById("login-form");
 const uNameEl = document.getElementById("username");
 const pWordEl = document.getElementById("password");
-const submitBtnEl = document.getElementById("submit");
+// const submitBtnEl = document.getElementById("submit");
+const themeBtnEl = document.querySelector(".icon--theme");
+let htmlEl = document.querySelector("html");
+
+let theme;
+
+checkTheme();
+
+function checkTheme() {
+  if (htmlEl.classList.contains("light")) {
+    theme = true;
+  } else {
+    theme = false;
+  }
+  return theme;
+}
 
 formEl.addEventListener("submit", (event) => {
   validateUser();
@@ -90,3 +105,41 @@ function isFormValid() {
   });
   return result;
 }
+
+themeBtnEl.addEventListener("click", function () {
+  theme = checkTheme();
+  let classNames = {
+    htmlEl: "html",
+    sectionLoginEl: ".section-login",
+    loginEl: ".login",
+    btnEl: ".btn",
+    sectionHeaderEl: ".section-header",
+    sectionFooterEl: ".section-footer",
+    themeIconEl: ".icon--theme",
+    input1El: ".input1",
+    input2El: ".input2",
+    errorMsg1El: ".error1",
+    errorMsg2El: ".error2",
+    iconErrorEl: ".icon--error",
+    iconSUccessEl: ".icon--success",
+  };
+
+  const className = Object.keys(classNames);
+  for (let i = 0; i < className.length; i++) {
+    if (theme === true) {
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.remove("light");
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.add("dark");
+    } else if (theme === false) {
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.remove("dark");
+      document
+        .querySelector(`${classNames[className[i]]}`)
+        .classList.add("light");
+    }
+  }
+});

@@ -69,8 +69,12 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
+.layout {
+  grid-template-rows: 10vh 85vh 5vh;
+}
+
 .container {
-  max-width: 160rem;
+  max-width: 120rem;
   margin: 0 auto;
   padding: 0 3.2rem;
 }
@@ -133,12 +137,12 @@ html {
 /* ************************* */
 
 .section-header {
-  height: 10vh;
+  /* height: 9.6rem; */
+  padding: 0 8rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 4.8rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .heading-primary {
@@ -150,6 +154,9 @@ html {
 /* Footer section  */
 /* ************************* */
 .section-footer {
-  padding: 4.8rem;
-  height: 10vh;
+  /* max-height: 10vh; */
+  padding: 0 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

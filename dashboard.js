@@ -6,6 +6,9 @@ const switchThemeEl = document.querySelector(".nav-menu--theme");
 const resetBtnEl = document.querySelector(".nav-menu--reset");
 let htmlEl = document.querySelector("html");
 document.getElementById("date").innerHTML = `Date : ${dateNow()}`;
+// document.getElementById(
+//   "footer-date"
+// ).innerHTML = `Copyrights &copy; ${dateNow()}`;
 
 // Other variables declaration
 let li = document.createElement("li");
@@ -199,7 +202,6 @@ switchThemeEl.addEventListener("click", function () {
   let classNames = {
     htmlEl: "html",
     sectionDashboardEl: ".section-dashboard",
-    sideMenuEl: ".side-menu",
     sectionHeaderEl: ".section-header",
     todoInputEl: ".todo-input",
     todoDisplayEl: ".todo-display",

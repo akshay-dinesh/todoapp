@@ -22,52 +22,49 @@
 </head>
 
 <body>
-  <header class="section-header light">
-    <div class="container">
-      <h1 class="heading-primary">Dashboard</h1>
-    </div>
-  </header>
+  <div class="grid layout">
 
-  <main>
-    <div class="section-dashboard light">
+
+    <header class="section-header light">
+      <div class="user">
+        <img src="./images/akshay.jpg" class="user-img" alt="Picture of Akshay">
+        <p class="user-name">Welcome, <strong id="user">Akshay</strong></p>
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-menu--list light">
+          <li class="nav-menu--list--item">
+            <a>
+              <ion-icon class="nav-icon" name="cloud-download-outline"></ion-icon>
+              <p>Download</p>
+            </a>
+          </li>
+          <li class="nav-menu--list--item nav-menu--reset">
+            <a>
+              <ion-icon class="nav-icon" name="refresh-outline"></ion-icon>
+              <p>Reset</p>
+            </a>
+          </li>
+          <li class="nav-menu--list--item nav-menu--theme">
+            <a>
+              <ion-icon class="nav-icon" name="contrast-outline"></ion-icon>
+              <p>Theme</p>
+            </a>
+          </li>
+          <li class="nav-menu--list--item nav-menu--logout">
+            <a href="index.html">
+              <ion-icon class="nav-icon" name="log-out-outline"></ion-icon>
+              <p>Logout</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="section-dashboard light">
+
       <div class="container">
-
-
         <div class="grid grid--dashboard">
-          <aside class="side-menu light">
-            <div class="user">
-              <p class="user-name">Welcome, <strong id="user">Akshay</strong></p>
-              <img src="./images/akshay.jpg" class="user-img" alt="Picture of Akshay">
-            </div>
-            <nav class="nav-menu">
-              <ul class="nav-menu--list light">
-                <li class="nav-menu--list--item">
-                  <a>
-                    <ion-icon class="nav-icon" name="person-circle-outline"></ion-icon>
-                    <p>Developer CV</p>
-                  </a>
-                </li>
-                <li class="nav-menu--list--item nav-menu--reset">
-                  <a>
-                    <ion-icon class="nav-icon" name="refresh-outline"></ion-icon>
-                    <p>Reset</p>
-                  </a>
-                </li>
-                <li class="nav-menu--list--item nav-menu--theme">
-                  <a>
-                    <ion-icon class="nav-icon" name="contrast-outline"></ion-icon>
-                    <p>Theme</p>
-                  </a>
-                </li>
-                <li class="nav-menu--list--item nav-menu--logout">
-                  <a href="index.html">
-                    <ion-icon class="nav-icon" name="log-out-outline"></ion-icon>
-                    <p>Logout</p>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </aside>
+
           <div class="todo-input grid light">
             <p id="input-header" class="input-header">Enter the task to be added</p>
             <p id="date" class="date">&nbsp;</p>
@@ -89,24 +86,21 @@
               </p>
             </li>
             <div class="task-list">
-
               <ul id="tasks" class="tasks light">
-
               </ul>
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="section-footer light">
-    <div class="container">
-
-      qqeqeqweqwewq
-    </div>
-  </footer>
+    <footer class="section-footer light">
+      <p class="footer-item" id="footer-date">Copyrights &copy; 2022</p>
+      <p class="footer-item">Let's connect!
+        <ion-icon class="icon--footer" name="logo-linkedin"></ion-icon>
+      </p>
+    </footer>
+  </div>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

@@ -169,7 +169,10 @@
 }
 
 .icon--trash,
-.icon--list {
+.icon--list,
+.icon--header,
+.icon--footer,
+.nav-icon {
   height: 2.4rem;
   width: 2.4rem;
 }
@@ -240,8 +243,6 @@
 }
 
 .nav-icon {
-  width: 2.4rem;
-  height: 2.4rem;
   margin-right: 1rem;
 }
 
@@ -259,7 +260,17 @@
 }
 
 .icon--footer {
-  width: 2.4rem;
-  height: 2.4rem;
   font-weight: 500;
+}
+
+.btn-mobile-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.icon--header {
 }

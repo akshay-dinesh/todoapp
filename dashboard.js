@@ -67,11 +67,11 @@ function displayWarning() {
   document.querySelector(".todo-input--warning").classList.add("active");
   theme = checkTheme();
   if (theme == true) {
-    document.querySelector(".input-text.light").style.border =
-      "2px solid #850000";
+    document.querySelector(".input-text.light").style.boxShadow =
+      "inset #850000 0px 0px 2px 2px";
   } else if (theme == false) {
-    document.querySelector(".input-text.dark").style.border =
-      "2px solid #ed4747";
+    document.querySelector(".input-text.dark").style.boxShadow =
+      "inset #ed4747 0px 0px 2px 2px";
   }
   warningFlag = true;
   console.log(warningFlag);
@@ -80,7 +80,7 @@ function displayWarning() {
 
 function removeWarning() {
   document.querySelector(".todo-input--warning").classList.remove("active");
-  document.querySelector(".input-text").style.border = "none";
+  document.querySelector(".input-text").style.boxShadow = "none";
   warningFlag = false;
   return warningFlag;
 }

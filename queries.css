@@ -16,6 +16,133 @@ font size = 102em  */
 } */
 /**********************************/
 /* BELOW 1531px (Large desktops) */
-/* 1531 (container size) / 16 (default
-font size = 96em  */
+/* 1130 (container size) / 16 (default
+font size = 71em  */
 /**********************************/
+@media (max-width: 71em) {
+  .date {
+    font-size: 1.8rem;
+  }
+
+  .input-header {
+    font-size: 2.4rem;
+  }
+
+  .nav-menu--list {
+    gap: 3.2rem;
+  }
+}
+
+/**********************************/
+/* BELOW 1050px (Small desktops + landscape tablets) */
+/* 1050 (container size) / 16 (default
+font size = 66em  */
+/**********************************/
+@media (max-width: 66em) {
+  .todo-input {
+    padding: 1.2rem 1.2rem 2rem 1.2rem;
+  }
+
+  .date {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+  }
+
+  .nav-menu--list {
+    gap: 2.4rem;
+  }
+
+  .grid--dashboard {
+    grid-template-rows: 1fr 3fr;
+  }
+}
+/**********************************/
+/* BELOW 948px (Tablets) */
+/* 948 (container size) / 16 (default
+font size = 60em  */
+/**********************************/
+@media (max-width: 66em) {
+  html {
+    /* 9px / 16px = (56.25%) [default font-size: 10] */
+    font-size: 59.37%;
+  }
+
+  .user-name {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+  }
+
+  .grid--dashboard {
+    grid-template-rows: 1fr 4fr;
+  }
+}
+/**********************************/
+/* BELOW 908px (Tablets) */
+/* 908 (container size) / 16 (default
+font size = 57em  */
+/**********************************/
+@media (max-width: 57em) {
+  .date {
+    font-size: 1.4rem;
+  }
+}
+/**********************************/
+/* BELOW 828px (Smaller Tablets) */
+/* 828 (container size) / 16 (default
+font size = 52em  */
+/**********************************/
+@media (max-width: 57em) {
+  html {
+    /* 8px / 16px = (50%) [default font-size: 10] */
+    font-size: 50%;
+  }
+}
+/**********************************/
+/* BELOW 544px (Smaller Tablets) */
+/* 544 (container size) / 16 (default
+font size = 34em  */
+/**********************************/
+@media (max-width: 34em) {
+  html {
+    /* 6px / 16px = (37.5%) [default font-size: 10] */
+    font-size: 37.5%;
+  }
+
+  .section-dashboard {
+    padding: 6.4rem;
+  }
+
+  .grid--dashboard {
+    grid-template-rows: 1fr 7fr;
+    grid-gap: 2.4rem;
+  }
+
+  .date {
+    font-size: 1.8rem;
+  }
+
+  .input-header {
+    font-size: 3rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+  }
+}
+/**********************************/
+/* BELOW 423px (Smaller Tablets) */
+/* 423 (container size) / 16 (default
+font size = 27em  */
+/**********************************/
+@media (max-width: 27em) {
+  html {
+    /* 5px / 16px = (30.75%) [default font-size: 10] */
+    font-size: 31.25%;
+  }
+}

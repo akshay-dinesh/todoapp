@@ -110,7 +110,8 @@ rgba(0, 0, 0, 0.2); */
 .tasks--added.dark,
 .login.dark,
 .icon--theme.dark,
-.section-footer.dark .footer-item {
+.section-footer.dark .footer-item,
+.section-header.dark .icon--header {
   color: #ffffff;
 }
 
@@ -231,7 +232,8 @@ rgba(0, 0, 0, 0.2); */
 .nav-menu--list.light li,
 .nav-menu--list.light a:link,
 .nav-menu--list.light a:visited,
-.section-footer.light .footer-item {
+.section-footer.light .footer-item,
+.icon--header.light {
   color: #202427;
 }
 

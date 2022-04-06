@@ -79,6 +79,11 @@ rgba(0, 0, 0, 0.2); */
   color: #fff;
 }
 
+.nav-menu--list.dark li:hover,
+.nav-menu--list.dark li:active {
+  color: #89c5f5;
+}
+
 /* .nav-menu--list.dark li:hover, */
 .btn.dark:hover,
 .btn.dark:active {
@@ -119,9 +124,8 @@ rgba(0, 0, 0, 0.2); */
   visibility: hidden;
 }
 
-.section-footer.dark .icon--footer,
-.section-footer.light .icon--footer {
-  color: #0a66c2;
+.section-footer.dark .icon--footer {
+  color: #89c5f5;
 }
 
 /* ------------------------------------------------- */
@@ -169,9 +173,12 @@ rgba(0, 0, 0, 0.2); */
 
 .todo-display.light,
 .todo-input.light,
-.section-footer.light,
 .login.light {
   background-color: #f6fbff;
+}
+
+.section-footer.light {
+  background-color: #dde2e6;
 }
 
 .tasks.light li:nth-child(even) {
@@ -223,7 +230,8 @@ rgba(0, 0, 0, 0.2); */
 .todo-input.light .input-header,
 .nav-menu--list.light li,
 .nav-menu--list.light a:link,
-.nav-menu--list.light a:visited {
+.nav-menu--list.light a:visited,
+.section-footer.light .footer-item {
   color: #202427;
 }
 
@@ -231,4 +239,8 @@ rgba(0, 0, 0, 0.2); */
   transition: none;
   color: #850000;
   visibility: hidden;
+}
+
+.section-footer.light .icon--footer {
+  color: #05305c;
 }

@@ -10,6 +10,13 @@ document.getElementById("date").innerHTML = `Date : ${dateNow()}`;
 //   "footer-date"
 // ).innerHTML = `Copyrights &copy; ${dateNow()}`;
 
+const userCreds = {
+  username: "akshay",
+  password: "123",
+};
+document.getElementById("user").innerHTML = userCreds.username;
+console.log(userCreds.username);
+
 // Other variables declaration
 let li = document.createElement("li");
 const tasks = document.getElementById("tasks");

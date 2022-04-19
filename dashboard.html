@@ -2,16 +2,15 @@
 <html lang="en" class="light">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Dashboard &mdash;</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="general.css" />
@@ -23,11 +22,9 @@
 
 <body>
   <div class="grid layout">
-
-
     <header class="section-header light">
       <div class="user">
-        <img src="./images/akshay.jpg" class="user-img" alt="Picture of Akshay">
+        <img src="./images/akshay.jpg" class="user-img" alt="Picture of Akshay" />
         <p class="user-name">Welcome, <strong id="user"></strong></p>
       </div>
       <nav class="nav-menu">
@@ -56,43 +53,53 @@
               <p>Logout</p>
             </a>
           </li>
+          <li>
+            <button class="btn-mobile-nav">
+              <ion-icon class="icon--header" name="menu-outline"></ion-icon>
+              <ion-icon class="icon--header" name="close-outline"></ion-icon>
+            </button>
+          </li>
         </ul>
       </nav>
-
-      <button class="btn-mobile-nav">
-        <ion-icon class="icon--header" name="menu-outline"></ion-icon>
-        <ion-icon class="icon--header" name="close-outline"></ion-icon>
-      </button>
     </header>
 
     <main class="section-dashboard light">
-
       <div class="container">
         <div class="grid grid--dashboard">
-
           <div class="todo-input grid light">
-            <p id="input-header" class="input-header">Enter the task to be added</p>
+            <p id="input-header" class="input-header">
+              Enter the task to be added
+            </p>
             <p id="date" class="date">&nbsp;</p>
-            <p class="todo-input--warning light" style="transition : none">Task input cannot be empty</p>
+            <p class="todo-input--warning light" style="transition: none">
+              Task input cannot be empty
+            </p>
             <input class="input-text light" type="task" id="task-input-text" placeholder="Enter task here" required
-              style="transition : none" />
-            <button id="add-task" class="btn btn--todo light">Add task</button>
+              style="transition: none" />
+            <button id="add-task" class="btn btn--todo light">
+              Add task
+            </button>
           </div>
           <div class="todo-display light">
             <li class="task-list--header light">
               <p class="task-list--header--element task-list--header--element--icon">
                 <ion-icon name="chevron-forward-outline"></ion-icon>
               </p>
-              <p class="task-list--header--element task-list--header--element--taskname">Task Name</p>
-              <p class="task-list--header--element task-list--header--element--status">Status</p>
-              <p class="task-list--header--element task-list--header--element--date">Date</p>
+              <p class="task-list--header--element task-list--header--element--taskname">
+                Task Name
+              </p>
+              <p class="task-list--header--element task-list--header--element--status">
+                Status
+              </p>
+              <p class="task-list--header--element task-list--header--element--date">
+                Date
+              </p>
               <p class="task-list--header--element task-list--header--element--trashicon">
                 <ion-icon name="trash-outline"></ion-icon>
               </p>
             </li>
             <div class="task-list">
-              <ul id="tasks" class="tasks light">
-              </ul>
+              <ul id="tasks" class="tasks light"></ul>
             </div>
           </div>
         </div>

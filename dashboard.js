@@ -15,7 +15,6 @@ const userCreds = {
   password: "123",
 };
 document.getElementById("user").innerHTML = userCreds.username;
-console.log(userCreds.username);
 
 // Other variables declaration
 let li = document.createElement("li");
@@ -98,7 +97,6 @@ addBtnEl.addEventListener("click", function () {
       status: TaskStatus.TODO,
       createdDate: dateNow(),
     });
-    // tasks.innerHTML = addLiFunction(taskArray);
     tasks.innerHTML = renderList(taskArray);
     taskInput.value = "";
   }
@@ -115,6 +113,7 @@ const deleteTask = function (id) {
   // console.log(deletedArray);
   renderList(taskArray);
   tasks.innerHTML = renderList(taskArray);
+  removeWarning();
   return deletedArray;
 };
 
@@ -139,7 +138,6 @@ function renderList(item) {
     }
     return temp1;
   };
-
   for (let i = 0; i < item.length; i++) {
     if (theme === true) {
       items += `<li class="tasks--added-task light"><ion-icon class="icon--list" name="chevron-forward-outline"></ion-icon><p class="tasks--added-task--description ${strike(
@@ -221,6 +219,7 @@ switchThemeEl.addEventListener("click", function () {
     inputTextWarning: ".input-text",
   };
   const className = Object.keys(classNames);
+  // const classNameValues = Object.values(classNames);
   for (let i = 0; i < className.length; i++) {
     if (theme === true) {
       document
